@@ -17,7 +17,7 @@ export default function Contact() {
           <p style={{ marginBottom: '40px' }}>
             Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss how we can bring your ideas to life with AI.
           </p>
-          <a href="mailto:shibtasam@gmail.com" className="btn btn-primary" style={{ marginBottom: '48px' }}>
+          <a href="https://wa.me/message/NNXCQB4E5X7HF1" className="btn btn-primary" style={{ marginBottom: '48px' }}>
             Get in Touch
           </a>
 
