@@ -31,7 +31,7 @@ const skillGroups = [
 
 const highlights = [
   { icon: '⚡', text: '25+ AI systems shipped to production' },
-  { icon: '💰', text: '40–70% cost reduction for clients on average' },
+  { icon: '💰', text: '40 to 70% cost reduction for clients on average' },
   { icon: '🔬', text: 'Published researcher on arXiv (LSTM vs QLSTM)' },
   { icon: '🌐', text: '23K+ LinkedIn followers in the AI community' },
 ];
@@ -52,16 +52,16 @@ export default function About() {
             <h2 className="section-title">One Developer.<br />Full Stack. All AI.</h2>
 
             <p style={{ marginBottom: '20px', lineHeight: 1.85 }}>
-              I work with startups and businesses who need one person to handle everything — UI design, backend development, AI integration, and deployment. No agencies, no handoffs, no &quot;that&apos;s not my part.&quot;
+              I work with founders, CTOs, and business owners who need one trusted developer to handle everything: UI design, backend, AI integration, and cloud deployment. No agency markups, no handoffs, no delays.
             </p>
             <p style={{ marginBottom: '20px', lineHeight: 1.85 }}>
               With 4+ years building production AI systems, I&apos;ve delivered intelligent chatbots, automation pipelines, SaaS platforms, and multi-agent systems for 100+ clients across healthcare, real estate, e-commerce, and finance.
             </p>
             <p style={{ marginBottom: '20px', lineHeight: 1.85 }}>
-              My background in Computational Physics means I approach problems with scientific rigor — and my published research on Quantum ML demonstrates I push boundaries beyond standard solutions.
+              My background in Computational Physics means I bring analytical rigor to every problem. My published research on Quantum ML (arXiv) shows I do not stop at standard solutions when better ones exist.
             </p>
             <p style={{ marginBottom: '36px', lineHeight: 1.85 }}>
-              I also build with the latest AI development tools — Cursor, Claude Code, GitHub Copilot, and OpenAI Codex — meaning I ship faster and smarter than traditional development workflows, passing the efficiency gains directly to my clients.
+              I also build with the latest AI development tools: Cursor, Claude Code, GitHub Copilot, and OpenAI Codex. This lets me ship faster and smarter than traditional development workflows, and I pass those efficiency gains directly to my clients.
             </p>
 
             {/* Highlights */}

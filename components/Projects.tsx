@@ -16,7 +16,7 @@ const projects = [
     id: 1,
     title: 'Agent Analysis System',
     problem: 'Enterprise team wasting hours on manual data analysis reports',
-    solution: 'Multi-agent AI platform — autonomous agents handle ingestion, reasoning, and report generation end-to-end',
+    solution: 'Multi-agent AI platform: autonomous agents handle ingestion, reasoning, and report generation end-to-end',
     tags: ['AbacusAI', 'LangGraph', 'Python', 'Multi-Agent', 'LLMs'],
     impact: '70% reduction in manual analysis time',
     year: '2025',
@@ -38,7 +38,7 @@ const projects = [
     problem: 'Business losing leads outside office hours with no 24/7 support',
     solution: 'Production AI communication platform with LLM conversations, Twilio telephony, and Vapi voice synthesis',
     tags: ['LLMs', 'Twilio', 'Vapi', 'Django', 'FastAPI'],
-    impact: 'Deployed live — 24/7 customer handling',
+    impact: 'Deployed live, 24/7 customer handling',
     year: '2024',
     color: '#06b6d4',
   },
@@ -55,7 +55,7 @@ const projects = [
   {
     id: 5,
     title: 'Multimodal RAG Chatbot',
-    problem: 'Users needing answers from mixed sources — PDFs, images, web, sketches — in one interface',
+    problem: 'Users needing answers from mixed sources (PDFs, images, web, sketches) in one interface',
     solution: 'Versatile RAG chatbot handling images, documents, drawings, and real-time web search for contextually grounded answers',
     tags: ['RAG', 'GPT-4o', 'LLaMA 3', 'Computer Vision', 'Web Search'],
     impact: 'Multi-source fusion across all modalities',
@@ -71,6 +71,46 @@ const projects = [
     impact: 'Multi-modal social intelligence at scale',
     year: '2023',
     color: '#f59e0b',
+  },
+  {
+    id: 7,
+    title: 'Medical Document Intelligence',
+    problem: 'Hospital staff spending hours manually extracting and categorizing data from patient records and clinical reports',
+    solution: 'AI system using LLMs and vector search to extract, classify, and summarize clinical documents with field-level accuracy',
+    tags: ['GPT-4o', 'LangChain', 'FastAPI', 'PostgreSQL', 'Healthcare AI'],
+    impact: '80% reduction in document processing time',
+    year: '2024',
+    color: '#06b6d4',
+  },
+  {
+    id: 8,
+    title: 'Insurance Claims Automation',
+    problem: 'Insurance firm processing 500+ claims per week manually, causing slow approvals and high error rates',
+    solution: 'Agentic AI workflow that reads claim documents, validates against policy rules, flags anomalies, and routes intelligently to adjusters',
+    tags: ['LangGraph', 'OpenAI', 'FastAPI', 'MongoDB', 'Agentic AI'],
+    impact: '65% faster claims processing',
+    year: '2025',
+    color: '#a855f7',
+  },
+  {
+    id: 9,
+    title: 'Financial Intelligence Platform',
+    problem: 'FinTech firm needing real-time insights from earnings reports, SEC filings, and market news across hundreds of assets',
+    solution: 'AI analytics platform combining RAG over financial documents with live market data feeds for automated reporting and smart alerts',
+    tags: ['RAG', 'GPT-4o', 'BigQuery', 'React', 'Next.js'],
+    impact: 'Real-time insights across 500+ assets',
+    year: '2025',
+    color: '#10b981',
+  },
+  {
+    id: 10,
+    title: 'Academic AI Tutor',
+    problem: 'EdTech startup needing personalized AI tutoring that adapts per student across subjects without expensive human tutors',
+    solution: 'Adaptive tutoring platform with LLM-powered Q&A, PDF curriculum ingestion, quiz generation, and per-student progress tracking',
+    tags: ['RAG', 'LLaMA 3', 'Next.js', 'FastAPI', 'EdTech AI'],
+    impact: '3x engagement vs traditional e-learning',
+    year: '2024',
+    color: '#6366f1',
   },
 ];
 
@@ -88,7 +128,7 @@ export default function Projects() {
           <span className="section-label">Selected Work</span>
           <h2 className="section-title">Projects</h2>
           <p style={{ maxWidth: '500px', lineHeight: 1.8 }}>
-            Real systems built for real clients — with measurable outcomes, not just impressive tech stacks.
+            Real systems built for real clients, with measurable outcomes. Not just impressive tech stacks.
           </p>
         </motion.div>
 

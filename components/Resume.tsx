@@ -74,7 +74,7 @@ export default function Resume() {
               <div style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border)' }}>
                 <h4 style={{ marginBottom: '4px' }}>BS (Hons) Computational Physics</h4>
                 <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>University of the Punjab</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Oct 2019 — Jul 2023 &nbsp;·&nbsp; CGPA: 3.40</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Oct 2019 to Jul 2023 &nbsp;·&nbsp; CGPA: 3.40</p>
                 <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
                   Thesis: Prediction of Stock Exchange Data Using LSTM & QLSTM
                 </p>
@@ -82,7 +82,7 @@ export default function Resume() {
               <div style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border)' }}>
                 <h4 style={{ marginBottom: '4px' }}>Diploma in Artificial Intelligence</h4>
                 <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>NAVTTC - University of the Punjab</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Jan 2022 — Oct 2022</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Jan 2022 to Oct 2022</p>
                 <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
                   FYP: Personal Protection Equipment Detection using YOLO
                 </p>

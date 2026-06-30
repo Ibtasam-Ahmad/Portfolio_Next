@@ -10,6 +10,7 @@ import Certifications from '@/components/Certifications';
 import Resume from '@/components/Resume';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <Testimonials />
         <Contact />
       </main>
+      <WhatsAppFloat />
     </>
   );
 }
