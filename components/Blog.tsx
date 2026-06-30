@@ -64,7 +64,8 @@ export default function Blog() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px' }}
         >
-          <h2>Blog</h2>
+          <span className="section-label">Writing</span>
+          <h2 className="section-title">Blog</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             Articles on AI, Machine Learning, and Technology.
           </p>

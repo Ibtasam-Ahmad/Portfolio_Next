@@ -24,20 +24,26 @@ const certifications = [
   {
     id: 4,
     title: 'Machine Learning Specialization',
-    issuer: 'Coursera',
-    year: '2024',
+    issuer: 'DeepLearning.AI · Stanford University',
+    year: '2023',
   },
   {
     id: 5,
     title: 'Microsoft Certified: Azure AI Fundamentals',
     issuer: 'Microsoft',
-    year: '2024',
+    year: '2022',
   },
   {
     id: 6,
     title: 'NAVTTC - Artificial Intelligence',
-    issuer: 'National Vocational and Technical Training Commission',
-    year: '2022',
+    issuer: 'National Vocational & Technical Training Commission',
+    year: '2023',
+  },
+  {
+    id: 7,
+    title: 'Graphic Design',
+    issuer: 'Alison',
+    year: '2021',
   },
 ];
 
@@ -52,7 +58,8 @@ export default function Certifications() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px' }}
         >
-          <h2>Certifications</h2>
+          <span className="section-label">Credentials</span>
+          <h2 className="section-title">Certifications</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             Professional certifications validating AI expertise.
           </p>

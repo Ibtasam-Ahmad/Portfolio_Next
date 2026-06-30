@@ -16,7 +16,7 @@ const publications = [
 
 export default function Publications() {
   return (
-    <section id="publications" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <section id="publications" className="section">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -25,7 +25,8 @@ export default function Publications() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px' }}
         >
-          <h2>Publications</h2>
+          <span className="section-label">Research</span>
+          <h2 className="section-title">Publications</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             Research contributions in AI and machine learning.
           </p>

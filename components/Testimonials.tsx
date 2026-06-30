@@ -31,7 +31,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section">
+    <section id="testimonials" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -40,7 +40,8 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px', textAlign: 'center' }}
         >
-          <h2>Testimonials</h2>
+          <span className="section-label">Client Feedback</span>
+          <h2 className="section-title">Testimonials</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px', margin: '16px auto 0' }}>
             What clients say about working with me.
           </p>

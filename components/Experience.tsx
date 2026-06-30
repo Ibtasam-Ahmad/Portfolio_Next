@@ -6,7 +6,7 @@ const experiences = [
   {
     id: 1,
     role: 'Python / AI Developer',
-    company: 'Infolyze Solutions',
+    company: 'Visnext Software Solutions',
     location: 'Lahore, Pakistan',
     period: 'May 2025 - Present',
     description: [
@@ -70,7 +70,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -79,7 +79,8 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px' }}
         >
-          <h2>Experience</h2>
+          <span className="section-label">Career Journey</span>
+          <h2 className="section-title">Experience</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             4+ years of experience building production-ready AI systems and full-stack applications.
           </p>

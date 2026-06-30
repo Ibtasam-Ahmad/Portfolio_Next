@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Resume() {
   return (
-    <section id="resume" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <section id="resume" className="section">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -13,7 +13,8 @@ export default function Resume() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px' }}
         >
-          <h2>Resume</h2>
+          <span className="section-label">Resume</span>
+          <h2 className="section-title">Download CV</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             Download my resume to learn more about my experience and skills.
           </p>
@@ -46,7 +47,7 @@ export default function Resume() {
             </p>
           </div>
           <a
-            href="https://drive.google.com/file/d/11N6NWHrlmkhd2OUiL9xlPRoSny1qa5E5/view?usp=sharing"
+            href="https://drive.google.com/file/d/18oKWxH1YQzTl3OHRV5iDJod-_atCo3wd/view?usp=drivesdk"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -73,7 +74,7 @@ export default function Resume() {
               <div style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border)' }}>
                 <h4 style={{ marginBottom: '4px' }}>BS (Hons) Computational Physics</h4>
                 <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>University of the Punjab</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Oct 2019 — Jul 2023</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Oct 2019 — Jul 2023 &nbsp;·&nbsp; CGPA: 3.40</p>
                 <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
                   Thesis: Prediction of Stock Exchange Data Using LSTM & QLSTM
                 </p>
