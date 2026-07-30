@@ -1,40 +1,39 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import content from '@/data/content.json';
 
 export default function Resume() {
+  const { resume } = content;
+
   return (
     <section id="resume" className="section">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: '64px' }}
-        >
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <div style={{ marginBottom: '64px' }}>
           <span className="section-label">Resume</span>
           <h2 className="section-title">Download CV</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             Download my resume to learn more about my experience and skills.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <div
           style={{
             background: 'var(--bg-tertiary)',
-            borderRadius: '16px',
+            borderRadius: 'var(--radius)',
             padding: '48px',
             border: '1px solid var(--border)',
             textAlign: 'center',
           }}
         >
           <div style={{ marginBottom: '32px' }}>
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" style={{ margin: '0 auto 24px' }}>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" style={{ margin: '0 auto 24px' }}>
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
               <polyline points="14,2 14,8 20,8" />
               <line x1="16" y1="13" x2="8" y2="13" />
@@ -47,7 +46,7 @@ export default function Resume() {
             </p>
           </div>
           <a
-            href="https://drive.google.com/file/d/18oKWxH1YQzTl3OHRV5iDJod-_atCo3wd/view?usp=drivesdk"
+            href={resume.downloadLink}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -60,37 +59,26 @@ export default function Resume() {
             </svg>
             Download Resume
           </a>
-        </motion.div>
+        </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', marginTop: '48px' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '32px', marginTop: '48px' }}>
+          <div>
             <h3 style={{ marginBottom: '24px' }}>Education</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border)' }}>
-                <h4 style={{ marginBottom: '4px' }}>BS (Hons) Computational Physics</h4>
-                <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>University of the Punjab</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Oct 2019 to Jul 2023 &nbsp;·&nbsp; CGPA: 3.40</p>
-                <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
-                  Thesis: Prediction of Stock Exchange Data Using LSTM & QLSTM
-                </p>
-              </div>
-              <div style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border)' }}>
-                <h4 style={{ marginBottom: '4px' }}>Diploma in Artificial Intelligence</h4>
-                <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>NAVTTC - University of the Punjab</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Jan 2022 to Oct 2022</p>
-                <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
-                  FYP: Personal Protection Equipment Detection using YOLO
-                </p>
-              </div>
+              {resume.education.map((edu) => (
+                <div key={edu.id} style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                  <h4 style={{ marginBottom: '4px' }}>{edu.degree}</h4>
+                  <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>{edu.school}</p>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>{edu.period}</p>
+                  <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
+                    {edu.note}
+                  </p>
+                </div>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

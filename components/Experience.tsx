@@ -1,106 +1,38 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const experiences = [
-  {
-    id: 1,
-    role: 'Python / AI Developer',
-    company: 'Visnext Software Solutions',
-    location: 'Lahore, Pakistan',
-    period: 'May 2025 - Present',
-    description: [
-      'Built AI pipelines including data ingestion, LLM fine-tuning (LLaMA 3.2, Unsloth), and vector indexing (FAISS, Chroma)',
-      'Designed and deployed RAG pipelines for report generation and contextual chatbots, reducing manual reporting by 60%',
-      'Automated property insights using BigQuery and summarization agents, improving turnaround by 40%',
-      'Developed multi-agent AI architectures for reasoning, planning, and executing complex workflows',
-      'Delivered SaaS/Micro-SaaS apps including resume analyzers, OCR tools, and real-time translators',
-      'Integrated AI models into full-stack apps (Django, Flask, FastAPI)',
-    ],
-  },
-  {
-    id: 2,
-    role: 'Python / AI Developer',
-    company: 'DigiMark Developers',
-    location: 'Lahore, Pakistan',
-    period: 'Mar 2024 - May 2025',
-    description: [
-      'Delivered custom chatbots and voicebots using RAG and generative AI models deployed in production',
-      'Designed web applications and APIs (Django REST, Flask, FastAPI) integrating AI pipelines',
-      'Developed ML/DL workflows for NLP, CV, and time series analysis',
-      'Applied LLMs (OpenAI, Hugging Face) for automated content creation and knowledge extraction',
-      'Built hybrid search solutions using SQL and vector databases (Pinecone, FAISS, Chroma)',
-    ],
-  },
-  {
-    id: 3,
-    role: 'Junior Python / AI Developer',
-    company: 'Expert System Solution',
-    location: 'Lahore, Pakistan',
-    period: 'Aug 2023 - Mar 2024',
-    description: [
-      'Developed AI solutions with Python/Django, NumPy, Pandas, scikit-learn, Keras, PyTorch',
-      'Delivered OCR and LSTM-based prediction tools automating manual data tasks',
-      'Contributed to database-backed AI apps using SQL/MySQL',
-    ],
-  },
-  {
-    id: 4,
-    role: 'AI Intern',
-    company: 'ZS Study Advisors',
-    location: 'Lahore, Pakistan',
-    period: 'Jul 2023 - Aug 2023',
-    description: [
-      'Implemented prototype AI solutions for NLP and CV tasks',
-      'Supported early-stage adoption of automation in operations',
-    ],
-  },
-  {
-    id: 5,
-    role: 'Demonstrator',
-    company: 'CHEP, University of the Punjab',
-    location: 'Lahore, Pakistan',
-    period: 'Sep 2022 - Jul 2023',
-    description: [
-      'Guided students in FYPs, assignments, and AI/physics projects',
-      'Assisted with grading, classroom projects, and hands-on demonstrations',
-    ],
-  },
-];
+import content from '@/data/content.json';
 
 export default function Experience() {
+  const { experience } = content;
+
   return (
     <section id="experience" className="section" style={{ background: 'var(--bg-secondary)' }}>
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: '64px' }}
-        >
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <div style={{ marginBottom: '64px' }}>
           <span className="section-label">Career Journey</span>
           <h2 className="section-title">Experience</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             4+ years of experience building production-ready AI systems and full-stack applications.
           </p>
-        </motion.div>
+        </div>
 
         <div style={{ position: 'relative', paddingLeft: '32px' }}>
           <div style={{ position: 'absolute', left: '7px', top: '0', bottom: '0', width: '2px', background: 'var(--border)' }} />
-          
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              style={{ position: 'relative', marginBottom: '40px' }}
-            >
+
+          {experience.map((exp) => (
+            <div key={exp.id} style={{ position: 'relative', marginBottom: '40px' }}>
               <div style={{ position: 'absolute', left: '-29px', top: '4px', width: '16px', height: '16px', borderRadius: '50%', background: 'var(--accent)', border: '3px solid var(--bg-primary)' }} />
-              
-              <div style={{ background: 'var(--bg-secondary)', borderRadius: '16px', padding: '28px', border: '1px solid var(--border)' }}>
+
+              {/* bg-tertiary, not bg-secondary: the section itself is
+                  bg-secondary, so a matching card would be invisible. */}
+              <div className="card" style={{ background: 'var(--bg-tertiary)', padding: '28px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', marginBottom: '12px', gap: '8px' }}>
                   <div>
                     <h3 style={{ fontSize: '1.25rem', marginBottom: '4px' }}>{exp.role}</h3>
@@ -117,10 +49,10 @@ export default function Experience() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

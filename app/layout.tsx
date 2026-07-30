@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AmbientBackground from "@/components/AmbientBackground";
+import content from "@/data/content.json";
 
 export const metadata: Metadata = {
-  title: "Ibtasam Ahmad | Full-Stack AI Developer",
-  description: "Full-Stack AI Developer specializing in LLMs, RAG, Agentic AI, and production AI systems. 4+ years, 25+ AI systems, 100+ clients.",
+  title: content.site.title,
+  description: content.site.description,
 };
 
 export default function RootLayout({
@@ -16,11 +18,14 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('light');}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('light');}var s=localStorage.getItem('designStyle');if(s){document.documentElement.setAttribute('data-style', s);}}catch(e){}})();`,
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <AmbientBackground />
+        {children}
+      </body>
     </html>
   );
 }

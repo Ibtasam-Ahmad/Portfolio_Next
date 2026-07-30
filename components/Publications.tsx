@@ -1,48 +1,35 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const publications = [
-  {
-    id: 1,
-    title: 'Comparative Study of Long Short-Term Memory (LSTM) and Quantum Long Short-Term Memory (QLSTM): Prediction of Stock Market Movement',
-    authors: 'Mahmood, Tariq., Ahmad, Ibtasam., Ansar, M. M. Z., Darwish, J. A., & Sherwani, R. A. K.',
-    year: '2024',
-    venue: 'arXiv preprint arXiv:2409.08297',
-    link: 'https://doi.org/10.48550/arXiv.2409.08297',
-    tags: ['Deep Learning', 'LSTM', 'QLSTM', 'Stock Market Prediction', 'Quantum Machine Learning'],
-  },
-];
+import content from '@/data/content.json';
 
 export default function Publications() {
+  const { publications } = content;
+
   return (
     <section id="publications" className="section">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: '64px' }}
-        >
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <div style={{ marginBottom: '64px' }}>
           <span className="section-label">Research</span>
           <h2 className="section-title">Publications</h2>
           <p style={{ marginTop: '16px', maxWidth: '500px' }}>
             Research contributions in AI and machine learning.
           </p>
-        </motion.div>
+        </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '800px' }}>
-          {publications.map((pub, index) => (
-            <motion.article
+          {publications.map((pub) => (
+            <article
               key={pub.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
               style={{
                 background: 'var(--bg-tertiary)',
-                borderRadius: '16px',
+                borderRadius: 'var(--radius)',
                 padding: '32px',
                 border: '1px solid var(--border)',
               }}
@@ -62,7 +49,7 @@ export default function Publications() {
                     style={{
                       padding: '6px 12px',
                       background: 'var(--bg-secondary)',
-                      borderRadius: '6px',
+                      borderRadius: 'var(--radius-sm)',
                       fontSize: '0.8125rem',
                       color: 'var(--text-secondary)',
                     }}
@@ -75,6 +62,7 @@ export default function Publications() {
                 href={pub.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="link-arrow"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -90,10 +78,10 @@ export default function Publications() {
                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>
               </a>
-            </motion.article>
+            </article>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,0 +1,138 @@
+{
+  "site": {
+    "name": "Ibtasam Ahmad",
+    "title": "Ibtasam Ahmad | Full-Stack AI Developer",
+    "description": "Full-Stack AI Developer specializing in LLMs, RAG, Agentic AI, and production AI systems. 4+ years, 25+ AI systems, 100+ clients."
+  },
+  "nav": [
+    { "label": "About", "href": "#about" },
+    { "label": "Services", "href": "#services" },
+    { "label": "Work", "href": "#work" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Blog", "href": "#blog" }
+  ],
+  "hero": {
+    "badge": "Available for new projects",
+    "location": "Full-Stack AI Developer · Lahore, Pakistan",
+    "greetingPrefix": "Hi, I'm",
+    "name": "Ibtasam Ahmad",
+    "headlineLine1": "I build AI products",
+    "headlineLine2": "end to end.",
+    "paragraph": "Backend, AI integration, frontend, cloud deployment, I do all of it myself. Founders and teams bring me in when they need a working product, not another meeting.",
+    "primaryCta": { "label": "View My Work", "href": "#work" },
+    "whatsappCta": { "label": "WhatsApp", "href": "https://wa.me/message/NNXCQB4E5X7HF1" },
+    "secondaryCta": { "label": "Let's Talk", "href": "#contact" },
+    "stats": [
+      { "number": "4+", "label": "Years Experience" },
+      { "number": "25+", "label": "AI Systems Built" },
+      { "number": "100+", "label": "Clients Served" },
+      { "number": "23K+", "label": "LinkedIn Followers" }
+    ]
+  },
+  "about": {
+    "heading": "From Physics to Production AI",
+    "paragraphs": [
+      "I work directly with founders and small teams who'd rather have one person own the whole build than coordinate across an agency, design, backend, AI, deployment, all under one roof.",
+      "Over the past 4+ years I've shipped chatbots, automation pipelines, SaaS platforms, and multi-agent systems for more than 100 clients across healthcare, real estate, e-commerce, and finance.",
+      "My background is in Computational Physics, which is where the habit of not settling for the standard solution came from. That instinct led to a published paper on Quantum ML (arXiv) comparing LSTM and QLSTM for stock market prediction.",
+      "I also lean on modern AI tooling day to day, Cursor, Claude Code, Copilot, which is part of how one person can reasonably cover this much ground."
+    ],
+    "highlights": [
+      "25+ AI systems shipped to production",
+      "40 to 70% average cost reduction for clients",
+      "Published researcher on arXiv (LSTM vs. QLSTM)",
+      "23K+ followers in the AI community on LinkedIn"
+    ],
+    "skillGroups": [
+      { "label": "AI / ML / GenAI", "skills": ["Python", "OpenAI", "LangChain", "LangGraph", "LLaMA", "Claude", "DeepSeek", "Hugging Face", "TensorFlow", "PyTorch", "RAG", "NLP", "Computer Vision", "Agentic AI", "Unsloth"] },
+      { "label": "Backend & APIs", "skills": ["Django", "FastAPI", "Flask", "Django REST", "Celery"] },
+      { "label": "Frontend", "skills": ["React", "Next.js", "Streamlit", "Tailwind CSS"] },
+      { "label": "Databases & Vector Stores", "skills": ["PostgreSQL", "MySQL", "MongoDB", "FAISS", "Pinecone", "Chroma", "BigQuery"] },
+      { "label": "Cloud & DevOps", "skills": ["Docker", "AWS", "Azure", "GitHub Actions", "Vercel"] },
+      { "label": "AI Dev Tools", "skills": ["Cursor", "Claude Code", "GitHub Copilot", "OpenAI Codex", "ChatGPT", "Windsurf"] }
+    ]
+  },
+  "services": [
+    { "id": 1, "title": "Full-Stack AI Products", "description": "End-to-end development: UI, backend, AI integration, and cloud deployment. You get a complete, working product, not a prototype.", "icon": "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+    { "id": 2, "title": "LLM & Chatbot Development", "description": "Custom AI assistants, RAG chatbots, and voice-bots deployed in production, not demos. Your customers get answers 24/7.", "icon": "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" },
+    { "id": 3, "title": "AI Automation & Pipelines", "description": "Replace manual, repetitive workflows with AI pipelines. Clients typically see a 40 to 70% drop in the operational cost of the task being automated.", "icon": "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" },
+    { "id": 4, "title": "SaaS & Micro-SaaS", "description": "Launch subscription AI products with payment processing, authentication, and CI/CD deployment, ready to onboard paying customers from day one.", "icon": "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+    { "id": 5, "title": "API Development & Integration", "description": "Robust REST APIs with FastAPI, Django REST, or Flask, connecting your AI models to any frontend, mobile app, or third-party platform.", "icon": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
+    { "id": 6, "title": "Data Intelligence & Analytics", "description": "Vector search pipelines, BigQuery analytics, and LLM-powered dashboards that turn raw data into decisions your team can act on.", "icon": "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" }
+  ],
+  "projects": [
+    { "id": 1, "title": "Agent Analysis System", "problem": "Enterprise team wasting hours on manual data analysis reports", "solution": "Multi-agent AI platform: autonomous agents handle ingestion, reasoning, and report generation end-to-end", "tags": ["AbacusAI", "LangGraph", "Python", "Multi-Agent", "LLMs"], "impact": "70% reduction in manual analysis time", "year": "2025" },
+    { "id": 2, "title": "Permit Signal Insights", "problem": "Real estate analysts spending days researching property permit data", "solution": "AI-powered intelligence platform using BigQuery pipelines and LLM summarization agents for automated insights", "tags": ["BigQuery", "Gemini", "Python", "Data Pipelines", "RAG"], "impact": "50% reduction in research time", "year": "2025" },
+    { "id": 3, "title": "Chat-Bot & Voice-Bot Platform", "problem": "Business losing leads outside office hours with no 24/7 support", "solution": "Production AI communication platform with LLM conversations, Twilio telephony, and Vapi voice synthesis", "tags": ["LLMs", "Twilio", "Vapi", "Django", "FastAPI"], "impact": "Deployed live, 24/7 customer handling", "year": "2024" },
+    { "id": 4, "title": "Pen Testing Agent Platform", "problem": "Security team running manual vulnerability assessments taking days per client", "solution": "AI-driven agents that autonomously run penetration testing workflows and generate structured security reports", "tags": ["FastAPI", "LangChain", "OpenAI", "PostgreSQL", "Agentic AI"], "impact": "Fully automated security cycles", "year": "2025" },
+    { "id": 5, "title": "Multimodal RAG Chatbot", "problem": "Users needing answers from mixed sources (PDFs, images, web, sketches) in one interface", "solution": "Versatile RAG chatbot handling images, documents, drawings, and real-time web search for contextually grounded answers", "tags": ["RAG", "GPT-4o", "LLaMA 3", "Computer Vision", "Web Search"], "impact": "Multi-source fusion across all modalities", "year": "2024" },
+    { "id": 6, "title": "Creator Ranking System", "problem": "Platform needing to identify high-potential creators from social media at scale", "solution": "AI system combining NLP and computer vision to analyze profiles, posts, interactions, and visual content for predictive ranking", "tags": ["NLP", "LSTM", "Computer Vision", "ML", "Recommender Systems"], "impact": "Multi-modal social intelligence at scale", "year": "2023" },
+    { "id": 7, "title": "Medical Document Intelligence", "problem": "Hospital staff spending hours manually extracting and categorizing data from patient records and clinical reports", "solution": "AI system using LLMs and vector search to extract, classify, and summarize clinical documents with field-level accuracy", "tags": ["GPT-4o", "LangChain", "FastAPI", "PostgreSQL", "Healthcare AI"], "impact": "80% reduction in document processing time", "year": "2024" },
+    { "id": 8, "title": "Insurance Claims Automation", "problem": "Insurance firm processing 500+ claims per week manually, causing slow approvals and high error rates", "solution": "Agentic AI workflow that reads claim documents, validates against policy rules, flags anomalies, and routes intelligently to adjusters", "tags": ["LangGraph", "OpenAI", "FastAPI", "MongoDB", "Agentic AI"], "impact": "65% faster claims processing", "year": "2025" },
+    { "id": 9, "title": "Financial Intelligence Platform", "problem": "FinTech firm needing real-time insights from earnings reports, SEC filings, and market news across hundreds of assets", "solution": "AI analytics platform combining RAG over financial documents with live market data feeds for automated reporting and smart alerts", "tags": ["RAG", "GPT-4o", "BigQuery", "React", "Next.js"], "impact": "Real-time insights across 500+ assets", "year": "2025" },
+    { "id": 10, "title": "Academic AI Tutor", "problem": "EdTech startup needing personalized AI tutoring that adapts per student across subjects without expensive human tutors", "solution": "Adaptive tutoring platform with LLM-powered Q&A, PDF curriculum ingestion, quiz generation, and per-student progress tracking", "tags": ["RAG", "LLaMA 3", "Next.js", "FastAPI", "EdTech AI"], "impact": "3x engagement vs traditional e-learning", "year": "2024" }
+  ],
+  "experience": [
+    { "id": 1, "role": "Python / AI Developer", "company": "Visnext Software Solutions", "location": "Lahore, Pakistan", "period": "May 2025 - Present", "description": ["Built AI pipelines including data ingestion, LLM fine-tuning (LLaMA 3.2, Unsloth), and vector indexing (FAISS, Chroma)", "Designed and deployed RAG pipelines for report generation and contextual chatbots, reducing manual reporting by 60%", "Automated property insights using BigQuery and summarization agents, improving turnaround by 40%", "Developed multi-agent AI architectures for reasoning, planning, and executing complex workflows", "Delivered SaaS/Micro-SaaS apps including resume analyzers, OCR tools, and real-time translators", "Integrated AI models into full-stack apps (Django, Flask, FastAPI)"] },
+    { "id": 2, "role": "Python / AI Developer", "company": "DigiMark Developers", "location": "Lahore, Pakistan", "period": "Mar 2024 - May 2025", "description": ["Delivered custom chatbots and voicebots using RAG and generative AI models deployed in production", "Designed web applications and APIs (Django REST, Flask, FastAPI) integrating AI pipelines", "Developed ML/DL workflows for NLP, CV, and time series analysis", "Applied LLMs (OpenAI, Hugging Face) for automated content creation and knowledge extraction", "Built hybrid search solutions using SQL and vector databases (Pinecone, FAISS, Chroma)"] },
+    { "id": 3, "role": "Junior Python / AI Developer", "company": "Expert System Solution", "location": "Lahore, Pakistan", "period": "Aug 2023 - Mar 2024", "description": ["Developed AI solutions with Python/Django, NumPy, Pandas, scikit-learn, Keras, PyTorch", "Delivered OCR and LSTM-based prediction tools automating manual data tasks", "Contributed to database-backed AI apps using SQL/MySQL"] },
+    { "id": 4, "role": "AI Intern", "company": "ZS Study Advisors", "location": "Lahore, Pakistan", "period": "Jul 2023 - Aug 2023", "description": ["Implemented prototype AI solutions for NLP and CV tasks", "Supported early-stage adoption of automation in operations"] },
+    { "id": 5, "role": "Demonstrator", "company": "CHEP, University of the Punjab", "location": "Lahore, Pakistan", "period": "Sep 2022 - Jul 2023", "description": ["Guided students in FYPs, assignments, and AI/physics projects", "Assisted with grading, classroom projects, and hands-on demonstrations"] }
+  ],
+  "publications": [
+    { "id": 1, "title": "Comparative Study of Long Short-Term Memory (LSTM) and Quantum Long Short-Term Memory (QLSTM): Prediction of Stock Market Movement", "authors": "Mahmood, Tariq., Ahmad, Ibtasam., Ansar, M. M. Z., Darwish, J. A., & Sherwani, R. A. K.", "year": "2024", "venue": "arXiv preprint arXiv:2409.08297", "link": "https://doi.org/10.48550/arXiv.2409.08297", "tags": ["Deep Learning", "LSTM", "QLSTM", "Stock Market Prediction", "Quantum Machine Learning"] }
+  ],
+  "blog": [
+    { "id": 1, "title": "Agentic AI: Key Terms You Should Know", "category": "AI", "date": "Mar 12, 2025", "excerpt": "A clear breakdown of the core terms used in discussing autonomous, decision-making AI systems.", "link": "https://medium.com/@shibtasam/agentic-ai-key-terms-you-should-know-42758ff4dab0" },
+    { "id": 2, "title": "Exploring the Landscape of Multiple LLMs", "category": "AI", "date": "Feb 14, 2025", "excerpt": "An overview of top language model providers and the strengths of each ecosystem.", "link": "https://medium.com/@shibtasam/exploring-the-landscape-of-multiple-large-language-models-24dd2ec27ad8" },
+    { "id": 3, "title": "Advanced Prompting Techniques for LLMs", "category": "AI", "date": "Dec 2, 2024", "excerpt": "Delving into techniques like Least-to-Most Prompting to boost LLM output quality.", "link": "https://medium.com/@shibtasam/beyond-the-basics-advanced-prompting-techniques-for-llms-619df4919223" },
+    { "id": 4, "title": "Advanced Retrieval-Augmented Generation", "category": "AI", "date": "Sep 19, 2024", "excerpt": "A deep dive into state-of-the-art RAG methods and how to implement them effectively.", "link": "https://medium.com/@shibtasam/exploring-advanced-retrieval-augmented-generation-techniques-a-comprehensive-guide-to-standard-b025d37c7932" },
+    { "id": 5, "title": "Master OOP in Minutes", "category": "Programming", "date": "May 11, 2024", "excerpt": "A compact guide to encapsulation, abstraction, inheritance, and polymorphism.", "link": "https://medium.com/@shibtasam/master-oop-in-minutes-a-crash-course-on-encapsulation-abstraction-inheritance-polymorphism-99b3929d17b8" },
+    { "id": 6, "title": "Quantum Gates, A Brief Introduction", "category": "Quantum Computing", "date": "Aug 28, 2023", "excerpt": "Understand how quantum gates manipulate qubit states in basic quantum circuits.", "link": "https://medium.com/@shibtasam/quantum-gates-a-brief-introduction-1a39085bea57" }
+  ],
+  "certifications": [
+    { "id": 1, "title": "Meta Full-Stack Engineer Certificate", "issuer": "Meta", "year": "2024" },
+    { "id": 2, "title": "IBM AI Engineering Professional Certificate", "issuer": "IBM", "year": "2024" },
+    { "id": 3, "title": "IBM Data Science Professional Certificate", "issuer": "IBM", "year": "2024" },
+    { "id": 4, "title": "Machine Learning Specialization", "issuer": "DeepLearning.AI · Stanford University", "year": "2023" },
+    { "id": 5, "title": "Microsoft Certified: Azure AI Fundamentals", "issuer": "Microsoft", "year": "2022" },
+    { "id": 6, "title": "NAVTTC - Artificial Intelligence", "issuer": "National Vocational & Technical Training Commission", "year": "2023" },
+    { "id": 7, "title": "Graphic Design", "issuer": "Alison", "year": "2021" }
+  ],
+  "resume": {
+    "downloadLink": "https://drive.google.com/file/d/18oKWxH1YQzTl3OHRV5iDJod-_atCo3wd/view?usp=drivesdk",
+    "education": [
+      { "id": 1, "degree": "BS (Hons) Computational Physics", "school": "University of the Punjab", "period": "Oct 2019 to Jul 2023 · CGPA: 3.40", "note": "Thesis: Prediction of Stock Exchange Data Using LSTM & QLSTM" },
+      { "id": 2, "degree": "Diploma in Artificial Intelligence", "school": "NAVTTC - University of the Punjab", "period": "Jan 2022 to Oct 2022", "note": "FYP: Personal Protection Equipment Detection using YOLO" }
+    ]
+  },
+  "testimonials": [
+    { "id": 1, "name": "Louis Dubois", "role": "Client", "company": "Healthcare AI Project, France", "initials": "LD", "content": "We collaborated with Ibtasam in March 2024 for a French healthcare AI assistant. His work on NLP and document understanding using LLMs was remarkable. He was professional, responsive, and always ahead of schedule." },
+    { "id": 2, "name": "Fatima Al Nahyan", "role": "Director", "company": "Dubai-based Firm, UAE", "initials": "FA", "content": "In August 2024, Ibtasam built a voice-enabled custom callbot for our firm. His implementation of Twilio and OpenAI made the solution highly interactive. Clients love it. Highly recommended!" },
+    { "id": 3, "name": "Chloe Smith", "role": "Co-Founder", "company": "AI Startup, Australia", "initials": "CS", "content": "In January 2025, Ibtasam helped us launch an AI-powered product recommendation engine. His creativity and command over data pipelines and vector databases really set him apart from other developers we have worked with." },
+    { "id": 4, "name": "Ahmad Zulkifli", "role": "Head of IT", "company": "University, Malaysia", "initials": "AZ", "content": "We hired Ibtasam in April 2025 to build a chatbot that answers academic queries from PDFs for our university. The final product was precise, fast, and extremely user-friendly. Excellent work all around!" },
+    { "id": 5, "name": "Sarah Chen", "role": "CTO", "company": "TechForward Inc., USA", "initials": "SC", "content": "Ibtasam built a full RAG pipeline that cut our document processing time by 65%. He handled the entire stack himself, from the React frontend to the FastAPI backend and vector database. Delivered ahead of schedule with clean, well-documented code." },
+    { "id": 6, "name": "Emma Thompson", "role": "Head of Operations", "company": "LogiFlow Ltd., UK", "initials": "ET", "content": "Our team was drowning in manual reporting every week. Ibtasam built multi-agent automation that now handles everything in minutes. We save over 20 hours every week and the ROI was clear within the first month." },
+    { "id": 7, "name": "David Park", "role": "Product Manager", "company": "B2B SaaS Startup, Singapore", "initials": "DP", "content": "Ibtasam built our customer-facing AI chatbot end to end. It now handles 80% of support queries automatically and our team only steps in for complex edge cases. Professional, communicative, and the code quality is genuinely excellent." },
+    { "id": 8, "name": "James Wilson", "role": "Engineering Lead", "company": "Automation Agency, Australia", "initials": "JW", "content": "We brought Ibtasam in for a complex multi-agent AI project. He structured the entire architecture, built it cleanly, and the system has been running in production for over 4 months without a single issue. Will absolutely work together again." }
+  ],
+  "contact": {
+    "heading": "Let's Build Something",
+    "paragraph": "Have a project in mind? Tell me what you need and I'll get back to you within 24 hours with a clear plan and honest pricing.",
+    "availability": { "status": "Currently accepting projects", "responseTime": "Typical response time: within 24 hours" },
+    "whatsapp": { "label": "Message on WhatsApp", "href": "https://wa.me/message/NNXCQB4E5X7HF1" },
+    "channels": [
+      { "label": "Email", "value": "shibtasam@gmail.com", "href": "mailto:shibtasam@gmail.com", "icon": "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+      { "label": "LinkedIn", "value": "linkedin.com/in/ibtasam-ahmad", "href": "https://pk.linkedin.com/in/ibtasam-ahmad", "icon": "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" }
+    ],
+    "projectTypes": ["Full-Stack AI Product", "LLM / Chatbot Development", "AI Automation & Pipelines", "SaaS Development", "API Development", "Data Intelligence", "Other"]
+  },
+  "footer": {
+    "copyrightName": "Ibtasam Ahmad",
+    "social": [
+      { "name": "GitHub", "href": "https://github.com/Ibtasam-Ahmad" },
+      { "name": "LinkedIn", "href": "https://pk.linkedin.com/in/ibtasam-ahmad" },
+      { "name": "Medium", "href": "https://medium.com/@shibtasam" }
+    ]
+  }
+}
