@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import content from '@/data/content.json';
+import CapabilityCharts from '@/components/CapabilityCharts';
 
 export default function Hero() {
   const { hero } = content;
@@ -69,6 +70,10 @@ export default function Hero() {
               {hero.secondaryCta.label}
             </a>
           </div>
+
+          {/* Four rotating domain charts, in place of claiming the same
+              capabilities adjective by adjective. */}
+          <CapabilityCharts />
 
           <div style={{ display: 'flex', gap: '40px', marginTop: '60px', paddingTop: '40px', borderTop: '1px solid var(--border)', flexWrap: 'wrap' }}>
             {hero.stats.map((stat) => (

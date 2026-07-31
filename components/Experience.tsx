@@ -39,7 +39,7 @@ export default function Experience() {
                     <p style={{ color: 'var(--accent)', fontSize: '1rem' }}>{exp.company}</p>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginTop: '4px' }}>{exp.location}</p>
                   </div>
-                  <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem', whiteSpace: 'nowrap' }}>{exp.period}</span>
+                  <span className="mono-meta" style={{ color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>{exp.period}</span>
                 </div>
                 <ul style={{ paddingLeft: '20px', marginTop: '16px' }}>
                   {exp.description.map((item, i) => (

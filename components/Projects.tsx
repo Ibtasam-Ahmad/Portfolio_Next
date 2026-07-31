@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import content from '@/data/content.json';
+import TechChip from '@/components/TechChip';
 
 export default function Projects() {
   const { projects } = content;
@@ -26,9 +27,14 @@ export default function Projects() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '24px' }}>
           {projects.map((project) => (
             <article key={project.id} className="card" style={{ padding: '32px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.8125rem', fontWeight: 500 }}>{project.year}</span>
-                <span style={{ color: 'var(--accent)', fontSize: '0.8125rem', fontWeight: 600 }}>{project.impact}</span>
+              {/* space-between with no gap let a long impact line wrap into
+                  the year and sit flush against it. The gap separates them,
+                  flex-start keeps a two-line impact top-aligned with the
+                  year, and the min-height keeps every card's title on the
+                  same baseline whether the impact wraps or not. */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '20px', minHeight: '34px', marginBottom: '20px' }}>
+                <span className="mono-meta" style={{ color: 'var(--text-muted)', fontWeight: 500, flexShrink: 0 }}>{project.year}</span>
+                <span className="mono-meta" style={{ color: 'var(--accent)', fontWeight: 600, textAlign: 'right', maxWidth: '72%' }}>{project.impact}</span>
               </div>
 
               <h3 style={{ marginBottom: '12px', fontSize: '1.25rem', color: 'var(--text-primary)' }}>{project.title}</h3>
@@ -40,20 +46,7 @@ export default function Projects() {
 
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      padding: '5px 11px',
-                      background: 'var(--bg-tertiary)',
-                      borderRadius: 'var(--radius-sm)',
-                      fontSize: '0.75rem',
-                      color: 'var(--text-secondary)',
-                      border: '1px solid var(--border)',
-                      fontWeight: 500,
-                    }}
-                  >
-                    {tag}
-                  </span>
+                  <TechChip key={tag} label={tag} size="sm" />
                 ))}
               </div>
             </article>

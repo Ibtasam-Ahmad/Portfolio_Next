@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import content from '@/data/content.json';
+import TechChip from '@/components/TechChip';
 
 export default function About() {
   const { about } = content;
@@ -46,20 +47,7 @@ export default function About() {
                 <p className="skill-group-label">{group.label}</p>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
                   {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      style={{
-                        padding: '6px 13px',
-                        background: 'var(--bg-tertiary)',
-                        borderRadius: 'var(--radius-sm)',
-                        fontSize: '0.8125rem',
-                        color: 'var(--text-secondary)',
-                        border: '1px solid var(--border)',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {skill}
-                    </span>
+                    <TechChip key={skill} label={skill} />
                   ))}
                 </div>
               </div>

@@ -1,11 +1,12 @@
 {
   "site": {
     "name": "Ibtasam Ahmad",
-    "title": "Ibtasam Ahmad | Full-Stack AI Developer",
-    "description": "Full-Stack AI Developer specializing in LLMs, RAG, Agentic AI, and production AI systems. 4+ years, 25+ AI systems, 100+ clients."
+    "title": "Ibtasam Ahmad | AI Engineer & Full-Stack Developer",
+    "description": "AI Engineer with a Computational Physics background. LLM fine-tuning, RAG, agentic systems, and complete end-to-end SaaS products. Published on arXiv. 4+ years, 25+ AI systems in production, 100+ clients."
   },
   "nav": [
     { "label": "About", "href": "#about" },
+    { "label": "Approach", "href": "#approach" },
     { "label": "Services", "href": "#services" },
     { "label": "Work", "href": "#work" },
     { "label": "Experience", "href": "#experience" },
@@ -13,12 +14,12 @@
   ],
   "hero": {
     "badge": "Available for new projects",
-    "location": "Full-Stack AI Developer · Lahore, Pakistan",
+    "location": "AI Engineer & Full-Stack Developer · Lahore, Pakistan",
     "greetingPrefix": "Hi, I'm",
     "name": "Ibtasam Ahmad",
-    "headlineLine1": "I build AI products",
-    "headlineLine2": "end to end.",
-    "paragraph": "Backend, AI integration, frontend, cloud deployment, I do all of it myself. Founders and teams bring me in when they need a working product, not another meeting.",
+    "headlineLine1": "I build AI systems",
+    "headlineLine2": "from the math up.",
+    "paragraph": "Computational physicist turned AI engineer. I work from the mathematics of the model to the billing page of the product around it, architecture, fine-tuning, backend, frontend, cloud, CI/CD. Not notebooks and scripts: systems that hold up in production.",
     "primaryCta": { "label": "View My Work", "href": "#work" },
     "whatsappCta": { "label": "WhatsApp", "href": "https://wa.me/message/NNXCQB4E5X7HF1" },
     "secondaryCta": { "label": "Let's Talk", "href": "#contact" },
@@ -29,21 +30,114 @@
       { "number": "23K+", "label": "LinkedIn Followers" }
     ]
   },
+  "cat": {
+    "name": "Tensor",
+    "role": "resident ML engineer",
+    "intro": "Hi, I'm Tensor. Hit \"Try a Look\" — it restyles the whole site, and me with it.",
+    "introMenu": "Hi, I'm Tensor. Open the menu and tap \"Try a Look\" — it restyles the site, and me with it.",
+    "idle": "Hit \"Try a Look\" and I change with the site."
+  },
+  "capabilities": {
+    "rotateSeconds": 7,
+    "note": "Representative figures — replace with your own measured numbers.",
+    "charts": [
+      {
+        "id": "ai-engineering",
+        "tab": "AI Engineering",
+        "title": "Answer accuracy by retrieval strategy",
+        "caption": "Each layer added to the pipeline, measured on a held-out evaluation set.",
+        "type": "columns",
+        "unit": "%",
+        "axisMax": 100,
+        "stat": { "value": "91%", "label": "accuracy after fine-tuning, up 39 points from keyword search" },
+        "points": [
+          { "label": "Keyword search", "short": "Keyword", "value": 52 },
+          { "label": "Vector search", "short": "Vector", "value": 68 },
+          { "label": "Hybrid SQL + vector", "short": "Hybrid", "value": 79 },
+          { "label": "With reranking", "short": "Rerank", "value": 86 },
+          { "label": "Fine-tuned model", "short": "Tuned", "value": 91 }
+        ]
+      },
+      {
+        "id": "ai-development",
+        "tab": "AI Development",
+        "title": "Operator hours per month, manual vs automated",
+        "caption": "Month one runs in parallel while the pipeline is built, then the workload falls away.",
+        "type": "emphasis-lines",
+        "unit": "h",
+        "axisMax": 0,
+        "stat": { "value": "1,250 h", "label": "saved in year one, a 52% reduction" },
+        "series": { "baseline": "Manual process", "improved": "With AI pipeline" },
+        "points": [
+          { "label": "Month 1", "short": "1", "value": 200, "improved": 200 },
+          { "label": "Month 2", "short": "2", "value": 200, "improved": 141 },
+          { "label": "Month 3", "short": "3", "value": 200, "improved": 109 },
+          { "label": "Month 4", "short": "4", "value": 200, "improved": 92 },
+          { "label": "Month 5", "short": "5", "value": 200, "improved": 83 },
+          { "label": "Month 6", "short": "6", "value": 200, "improved": 78 },
+          { "label": "Month 7", "short": "7", "value": 200, "improved": 76 },
+          { "label": "Month 8", "short": "8", "value": 200, "improved": 74 },
+          { "label": "Month 9", "short": "9", "value": 200, "improved": 74 },
+          { "label": "Month 10", "short": "10", "value": 200, "improved": 73 },
+          { "label": "Month 11", "short": "11", "value": 200, "improved": 73 },
+          { "label": "Month 12", "short": "12", "value": 200, "improved": 73 }
+        ]
+      },
+      {
+        "id": "saas",
+        "tab": "SaaS Development",
+        "title": "Signup to paying customer",
+        "caption": "The funnel a subscription product is actually judged on, instrumented from day one.",
+        "type": "bars",
+        "unit": "",
+        "axisMax": 0,
+        "stat": { "value": "4.1%", "label": "of visitors convert to paying, 17% of those who sign up" },
+        "points": [
+          { "label": "Visitors", "short": "Visitors", "value": 10000 },
+          { "label": "Signed up", "short": "Signed up", "value": 2400 },
+          { "label": "Activated", "short": "Activated", "value": 1320 },
+          { "label": "Retained at day 30", "short": "Retained", "value": 780 },
+          { "label": "Paying", "short": "Paying", "value": 410 }
+        ]
+      },
+      {
+        "id": "scale",
+        "tab": "Large-Scale Systems",
+        "title": "p95 response time as load scales",
+        "caption": "Latency holds while throughput grows 250×, because the work is queued, cached and horizontally scaled.",
+        "type": "columns",
+        "unit": "ms",
+        "axisMax": 400,
+        "stat": { "value": "< 300 ms", "label": "p95 at 25,000 requests per second" },
+        "points": [
+          { "label": "100 req/s", "short": "100", "value": 180 },
+          { "label": "500 req/s", "short": "500", "value": 190 },
+          { "label": "1k req/s", "short": "1k", "value": 195 },
+          { "label": "5k req/s", "short": "5k", "value": 210 },
+          { "label": "10k req/s", "short": "10k", "value": 240 },
+          { "label": "25k req/s", "short": "25k", "value": 280 }
+        ]
+      }
+    ]
+  },
   "about": {
-    "heading": "From Physics to Production AI",
+    "heading": "From Computational Physics to Production AI",
     "paragraphs": [
-      "I work directly with founders and small teams who'd rather have one person own the whole build than coordinate across an agency, design, backend, AI, deployment, all under one roof.",
-      "Over the past 4+ years I've shipped chatbots, automation pipelines, SaaS platforms, and multi-agent systems for more than 100 clients across healthcare, real estate, e-commerce, and finance.",
-      "My background is in Computational Physics, which is where the habit of not settling for the standard solution came from. That instinct led to a published paper on Quantum ML (arXiv) comparing LSTM and QLSTM for stock market prediction.",
-      "I also lean on modern AI tooling day to day, Cursor, Claude Code, Copilot, which is part of how one person can reasonably cover this much ground."
+      "I'm an AI engineer with a Computational Physics background, which means linear algebra, probability, optimisation and numerical methods are working tools rather than something I outsource to a framework. It's how I decide what a problem actually needs before reaching for a library.",
+      "That shows in the work: fine-tuning LLaMA 3.2 with Unsloth instead of prompting around a weak base model, hybrid SQL and vector retrieval instead of a default RAG template, and multi-agent graphs where the control flow is designed rather than hoped for.",
+      "The research side is published. A comparative study of LSTM and Quantum LSTM for stock market movement (arXiv), which grew out of my Computational Physics thesis.",
+      "The other half is shipping. Over 4+ years I've delivered SaaS and micro-SaaS products with authentication, payments, background workers, CI/CD and cloud deployment, 25+ AI systems in production for more than 100 clients across healthcare, real estate, e-commerce and finance.",
+      "I lean on modern AI tooling day to day, Cursor, Claude Code, Copilot, because leverage is the point. It's how one engineer covers architecture, training, backend, frontend and deployment on the same project without it showing in the result."
     ],
     "highlights": [
-      "25+ AI systems shipped to production",
-      "40 to 70% average cost reduction for clients",
+      "Trains and fine-tunes models, not just API calls",
       "Published researcher on arXiv (LSTM vs. QLSTM)",
-      "23K+ followers in the AI community on LinkedIn"
+      "End-to-end SaaS: auth, payments, workers, CI/CD",
+      "25+ AI systems shipped to production, not prototypes",
+      "40 to 70% average cost reduction for clients"
     ],
     "skillGroups": [
+      { "label": "Mathematics & Theory", "skills": ["Linear Algebra", "Probability & Statistics", "Optimization", "Numerical Methods", "Time Series Analysis", "Quantum Machine Learning"] },
       { "label": "AI / ML / GenAI", "skills": ["Python", "OpenAI", "LangChain", "LangGraph", "LLaMA", "Claude", "DeepSeek", "Hugging Face", "TensorFlow", "PyTorch", "RAG", "NLP", "Computer Vision", "Agentic AI", "Unsloth"] },
       { "label": "Backend & APIs", "skills": ["Django", "FastAPI", "Flask", "Django REST", "Celery"] },
       { "label": "Frontend", "skills": ["React", "Next.js", "Streamlit", "Tailwind CSS"] },
@@ -52,13 +146,76 @@
       { "label": "AI Dev Tools", "skills": ["Cursor", "Claude Code", "GitHub Copilot", "OpenAI Codex", "ChatGPT", "Windsurf"] }
     ]
   },
+  "approach": {
+    "label": "How I Work",
+    "heading": "Depth Where It Matters, Shipped End to End",
+    "intro": "AI projects usually fail at one of two ends: the model was picked without understanding it, or it never made it out of the notebook. I cover both.",
+    "pillars": [
+      {
+        "id": 1,
+        "title": "The mathematics, not just the API",
+        "body": "A Computational Physics degree means linear algebra, probability, optimisation and numerical methods are working tools. I pick an architecture because the problem calls for it, and when training stops converging I can reason about why instead of swapping libraries.",
+        "proof": "Published on arXiv: LSTM vs. Quantum LSTM for stock market movement",
+        "formula": "θ ← θ − η ∇θ ℒ(θ)",
+        "formulaCaption": "the update rule under every training loop",
+        "icon": "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+      },
+      {
+        "id": 2,
+        "title": "Built from scratch when it should be",
+        "body": "Fine-tuning LLaMA 3.2 with Unsloth rather than prompting around a weak base model. Hybrid SQL and vector retrieval rather than a default RAG template. Agent graphs with deliberate control flow rather than hoping the model plans well on its own.",
+        "proof": "LLaMA 3.2 fine-tuning · FAISS, Chroma, Pinecone · LangGraph multi-agent systems",
+        "formula": "sim(q, d) = q·d / ‖q‖‖d‖",
+        "formulaCaption": "cosine similarity, the core of every retrieval step",
+        "icon": "M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm4 4l2 2-2 2m4 2h4"
+      },
+      {
+        "id": 3,
+        "title": "Products, not scripts",
+        "body": "A model behind an endpoint is not a product. What I hand over includes authentication, payments, background workers, error handling, CI/CD, deployment and a frontend a paying customer can use on day one.",
+        "proof": "SaaS and micro-SaaS delivered with Django, FastAPI, Celery, Docker and GitHub Actions",
+        "formula": "p99 < 500ms · 99.9% uptime",
+        "formulaCaption": "the numbers a production service is judged on",
+        "icon": "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+      },
+      {
+        "id": 4,
+        "title": "Automation as leverage",
+        "body": "Pipelines that remove the manual step rather than shortening it, plus heavy use of modern AI tooling in my own workflow. That leverage is how one engineer owns architecture, training, backend, frontend and deployment on the same project.",
+        "proof": "40 to 70% average cost reduction on the workflows I automate",
+        "formula": "cost ∝ tokens × calls × price",
+        "formulaCaption": "what you optimise when inference bills scale",
+        "icon": "M13 10V3L4 14h7v7l9-11h-7z"
+      },
+      {
+        "id": 5,
+        "title": "Measured, not vibed",
+        "body": "\"It seems to work\" is not a launch criterion. Every pipeline ships with an evaluation set, a regression suite over prompts and retrieval, and a number attached, so a change that quietly makes answers worse gets caught before your users find it.",
+        "proof": "Held-out eval sets · retrieval and answer scoring · regression runs in CI",
+        "formula": "F1 = 2PR / (P + R)",
+        "formulaCaption": "precision and recall, before anything goes live",
+        "icon": "M9 17V7m4 10V11m4 6V9M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"
+      },
+      {
+        "id": 6,
+        "title": "Your data stays yours",
+        "body": "Healthcare records, claims and financial filings do not belong in someone else's training set. Sensitive fields get redacted before they reach a model, and where the data cannot leave the building I run open-weight models on your own infrastructure instead.",
+        "proof": "PII redaction · self-hosted LLaMA and open-weight models · scoped access control",
+        "formula": "PII → redact → embed → serve",
+        "formulaCaption": "the order that keeps raw identifiers out of a vector store",
+        "icon": "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+      }
+    ]
+  },
   "services": [
     { "id": 1, "title": "Full-Stack AI Products", "description": "End-to-end development: UI, backend, AI integration, and cloud deployment. You get a complete, working product, not a prototype.", "icon": "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
     { "id": 2, "title": "LLM & Chatbot Development", "description": "Custom AI assistants, RAG chatbots, and voice-bots deployed in production, not demos. Your customers get answers 24/7.", "icon": "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" },
     { "id": 3, "title": "AI Automation & Pipelines", "description": "Replace manual, repetitive workflows with AI pipelines. Clients typically see a 40 to 70% drop in the operational cost of the task being automated.", "icon": "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" },
     { "id": 4, "title": "SaaS & Micro-SaaS", "description": "Launch subscription AI products with payment processing, authentication, and CI/CD deployment, ready to onboard paying customers from day one.", "icon": "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
     { "id": 5, "title": "API Development & Integration", "description": "Robust REST APIs with FastAPI, Django REST, or Flask, connecting your AI models to any frontend, mobile app, or third-party platform.", "icon": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
-    { "id": 6, "title": "Data Intelligence & Analytics", "description": "Vector search pipelines, BigQuery analytics, and LLM-powered dashboards that turn raw data into decisions your team can act on.", "icon": "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" }
+    { "id": 6, "title": "Data Intelligence & Analytics", "description": "Vector search pipelines, BigQuery analytics, and LLM-powered dashboards that turn raw data into decisions your team can act on.", "icon": "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+    { "id": 7, "title": "Model Training & Fine-Tuning", "description": "Fine-tuned LLaMA and open-weight models on your own data with Unsloth and Hugging Face, plus custom ML and deep learning models for NLP, vision, and time series when an off-the-shelf API is the wrong answer.", "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+    { "id": 8, "title": "Deployment, MLOps & Cost Control", "description": "Dockerised services, CI/CD with GitHub Actions, and deployment to AWS, Azure or Vercel, with monitoring and inference costs kept under control instead of discovered on the invoice.", "icon": "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" }
   ],
   "projects": [
     { "id": 1, "title": "Agent Analysis System", "problem": "Enterprise team wasting hours on manual data analysis reports", "solution": "Multi-agent AI platform: autonomous agents handle ingestion, reasoning, and report generation end-to-end", "tags": ["AbacusAI", "LangGraph", "Python", "Multi-Agent", "LLMs"], "impact": "70% reduction in manual analysis time", "year": "2025" },

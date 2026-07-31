@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
+import Approach from '@/components/Approach';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Publications from '@/components/Publications';
@@ -11,6 +12,8 @@ import Resume from '@/components/Resume';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import BackToTop from '@/components/BackToTop';
+import PixelCat from '@/components/PixelCat';
 
 export default function Home() {
   return (
@@ -20,6 +23,7 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
+        <Approach />
         <Projects />
         <Experience />
         <Publications />
@@ -30,6 +34,8 @@ export default function Home() {
         <Contact />
       </main>
       <WhatsAppFloat />
+      <BackToTop />
+      <PixelCat />
     </>
   );
 }

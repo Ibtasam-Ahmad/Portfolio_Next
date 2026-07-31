@@ -1,16 +1,29 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import content from '@/data/content.json';
 import { DESIGN_STYLES, DEFAULT_DESIGN_STYLE, type DesignStyleId } from '@/lib/designStyles';
+import { STYLE_USED_EVENT } from '@/lib/catSprites';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [designStyle, setDesignStyle] = useState<DesignStyleId>(DEFAULT_DESIGN_STYLE);
+  const [toast, setToast] = useState<{ kind: 'light' | 'dark' | 'style'; label: string; value: string } | null>(null);
+  const toastTimer = useRef<number | undefined>(undefined);
+
+  const showToast = useCallback((next: { kind: 'light' | 'dark' | 'style'; label: string; value: string }) => {
+    setToast(next);
+    window.clearTimeout(toastTimer.current);
+    toastTimer.current = window.setTimeout(() => setToast(null), 2600);
+  }, []);
+
+  // A toggle clicked as the component unmounts would otherwise leave a timer
+  // calling setState on a dead component.
+  useEffect(() => () => window.clearTimeout(toastTimer.current), []);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme') as 'dark' | 'light' | null;
@@ -33,6 +46,7 @@ export default function Header() {
     setTheme(next);
     localStorage.setItem('theme', next);
     document.documentElement.classList.toggle('light', next === 'light');
+    showToast({ kind: next, label: 'Theme', value: next === 'light' ? 'Light mode' : 'Dark mode' });
   };
 
   const randomizeStyle = () => {
@@ -41,6 +55,9 @@ export default function Header() {
     setDesignStyle(next.id);
     localStorage.setItem('designStyle', next.id);
     document.documentElement.setAttribute('data-style', next.id);
+    showToast({ kind: 'style', label: 'Style', value: next.label });
+    // Carries the new style id so the cat knows which power to put on.
+    window.dispatchEvent(new CustomEvent(STYLE_USED_EVENT, { detail: { styleId: next.id } }));
   };
 
   useEffect(() => {
@@ -120,6 +137,37 @@ export default function Header() {
           <span style={{ display: 'block', width: '22px', height: '2px', background: 'var(--text-primary)', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -7px)' : 'none' }} />
         </button>
       </div>
+
+      {/* Announces what the icon-only toggles just did. role="status" means a
+          screen reader hears it too, which is the only way a non-sighted
+          visitor learns the theme or style changed at all. */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            className="toggle-toast"
+            role="status"
+            aria-live="polite"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+          >
+            {toast.kind === 'light' && (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            )}
+            {toast.kind === 'dark' && (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            )}
+            {toast.kind === 'style' && (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 3h5v5" /><path d="M4 20L21 3" /><path d="M21 16v5h-5" /><path d="M15 15l6 6" /><path d="M4 4l5 5" />
+              </svg>
+            )}
+            <span className="toggle-toast-label">{toast.label}</span>
+            <span>{toast.value}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {menuOpen && (

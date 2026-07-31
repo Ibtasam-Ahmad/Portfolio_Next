@@ -44,7 +44,7 @@ export default function Certifications() {
                   <h3 style={{ fontSize: '1.125rem' }}>{cert.title}</h3>
                 </div>
               </div>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>{cert.year}</span>
+              <span className="mono-meta" style={{ color: 'var(--text-muted)' }}>{cert.year}</span>
             </div>
           ))}
         </div>

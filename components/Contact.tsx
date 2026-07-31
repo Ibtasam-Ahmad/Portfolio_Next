@@ -6,14 +6,15 @@ import content from '@/data/content.json';
 
 export default function Contact() {
   const { contact, footer } = content;
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
+    setStatus('sending');
     try {
-      await fetch('https://formsubmit.co/ajax/shibtasam@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/shibtasam@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -24,12 +25,17 @@ export default function Contact() {
           _subject: `New Project Inquiry: ${data.get('projectType')}`,
         }),
       });
+      if (!res.ok) throw new Error(`formsubmit responded ${res.status}`);
     } catch {
-      // still show success to user
+      /* A failed send used to report success anyway, so the enquiry was lost
+         with nobody aware of it. Keep what they typed on screen and point
+         them at a channel that works. */
+      setStatus('error');
+      return;
     }
-    setSubmitted(true);
+    setStatus('sent');
     form.reset();
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
@@ -109,11 +115,11 @@ export default function Contact() {
           {/* Right: form */}
           <div className="card" style={{ padding: '36px' }}>
             <h3 style={{ marginBottom: '28px', fontSize: '1.25rem' }}>Send a Message</h3>
-            {submitted ? (
+            {status === 'sent' ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>✓</div>
-                <p style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '1.0625rem', marginBottom: '8px' }}>Message sent successfully!</p>
-                <p style={{ fontSize: '0.9375rem' }}>I&apos;ll respond within 24 hours.</p>
+                <p style={{ textAlign: 'center', color: 'var(--text-primary)', fontWeight: 600, fontSize: '1.0625rem', marginBottom: '8px' }}>Message sent successfully!</p>
+                <p style={{ textAlign: 'center', fontSize: '0.9375rem' }}>I&apos;ll respond within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -140,8 +146,39 @@ export default function Contact() {
                   <label className="form-label">Message *</label>
                   <textarea name="message" required className="form-textarea" placeholder="Tell me about your project: what you need built, the timeline, and the problem you are solving." />
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>
-                  Send Message
+                {status === 'error' && (
+                  <div
+                    role="alert"
+                    style={{
+                      padding: '14px 16px',
+                      border: '1px solid var(--accent)',
+                      borderRadius: 'var(--radius-sm)',
+                      background: 'rgba(var(--accent-rgb), 0.08)',
+                    }}
+                  >
+                    <p style={{ fontSize: '0.9375rem', color: 'var(--text-primary)', fontWeight: 600, margin: 0 }}>
+                      That didn&apos;t go through.
+                    </p>
+                    <p style={{ fontSize: '0.875rem', margin: '4px 0 0' }}>
+                      Your message is still in the form — try again, or reach me directly at{' '}
+                      <a href="mailto:shibtasam@gmail.com" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                        shibtasam@gmail.com
+                      </a>{' '}
+                      or on{' '}
+                      <a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                        WhatsApp
+                      </a>
+                      .
+                    </p>
+                  </div>
+                )}
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  style={{ alignSelf: 'flex-start', opacity: status === 'sending' ? 0.7 : 1 }}
+                  disabled={status === 'sending'}
+                >
+                  {status === 'sending' ? 'Sending…' : status === 'error' ? 'Try Again' : 'Send Message'}
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                 </button>
               </form>

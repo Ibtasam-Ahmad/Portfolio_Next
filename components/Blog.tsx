@@ -24,29 +24,32 @@ export default function Blog() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '32px' }}>
+          {/* The whole card is the link. It always looked clickable
+              (cursor: pointer) but only the "Read More" text actually
+              navigated, so clicks anywhere else did nothing. */}
           {blog.map((post) => (
-            <article
+            <a
               key={post.id}
-              className="card"
+              href={post.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card blog-card"
+              aria-label={`${post.title} — read on Medium`}
               style={{
                 background: 'var(--bg-tertiary)',
                 padding: '32px',
-                cursor: 'pointer',
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                <span style={{ color: 'var(--accent)', fontSize: '0.8125rem', fontWeight: 500 }}>{post.category}</span>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.8125rem' }}>{post.date}</span>
+                <span className="mono-meta" style={{ color: 'var(--accent)', fontWeight: 500 }}>{post.category}</span>
+                <span className="mono-meta" style={{ color: 'var(--text-muted)' }}>{post.date}</span>
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', lineHeight: 1.4 }}>{post.title}</h3>
               <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: 'var(--text-secondary)', marginBottom: '20px' }}>
                 {post.excerpt}
               </p>
-              <a
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-arrow"
+              <span
+                className="blog-arrow"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -54,15 +57,14 @@ export default function Blog() {
                   color: 'var(--accent)',
                   fontSize: '0.9375rem',
                   fontWeight: 500,
-                  textDecoration: 'none',
                 }}
               >
                 Read More
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>
-              </a>
-            </article>
+              </span>
+            </a>
           ))}
         </div>
       </motion.div>

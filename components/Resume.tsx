@@ -41,7 +41,7 @@ export default function Resume() {
               <polyline points="10,9 9,9 8,9" />
             </svg>
             <h3 style={{ marginBottom: '16px' }}>Download My Resume</h3>
-            <p style={{ maxWidth: '500px', margin: '0 auto 32px', lineHeight: 1.8 }}>
+            <p style={{ textAlign: 'center', maxWidth: '500px', margin: '0 auto 32px', lineHeight: 1.8 }}>
               Get the full details of my experience, education, skills, and projects. Let&apos;s connect and discuss how I can help with your AI projects.
             </p>
           </div>
@@ -61,21 +61,21 @@ export default function Resume() {
           </a>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '32px', marginTop: '48px' }}>
-          <div>
-            <h3 style={{ marginBottom: '24px' }}>Education</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {resume.education.map((edu) => (
-                <div key={edu.id} style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                  <h4 style={{ marginBottom: '4px' }}>{edu.degree}</h4>
-                  <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>{edu.school}</p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>{edu.period}</p>
-                  <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
-                    {edu.note}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* One column, so a one-column auto-fit grid wrapping a single child
+            was doing nothing. Education entries stack directly. */}
+        <div style={{ marginTop: '48px' }}>
+          <h3 style={{ marginBottom: '24px' }}>Education</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
+            {resume.education.map((edu) => (
+              <div key={edu.id} style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                <h4 style={{ marginBottom: '4px' }}>{edu.degree}</h4>
+                <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', marginBottom: '8px' }}>{edu.school}</p>
+                <p className="mono-meta" style={{ color: 'var(--text-muted)' }}>{edu.period}</p>
+                <p style={{ marginTop: '12px', fontSize: '0.9375rem', lineHeight: 1.7 }}>
+                  {edu.note}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </motion.div>

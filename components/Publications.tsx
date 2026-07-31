@@ -35,8 +35,8 @@ export default function Publications() {
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '16px' }}>
-                <span style={{ color: 'var(--accent)', fontSize: '0.875rem', fontWeight: 500 }}>{pub.year}</span>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>{pub.venue}</span>
+                <span className="mono-meta" style={{ color: 'var(--accent)', fontWeight: 500 }}>{pub.year}</span>
+                <span className="mono-meta" style={{ color: 'var(--text-muted)' }}>{pub.venue}</span>
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', lineHeight: 1.5 }}>{pub.title}</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9375rem', marginBottom: '20px', lineHeight: 1.6 }}>

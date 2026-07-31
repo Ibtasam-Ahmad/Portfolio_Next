@@ -18,7 +18,7 @@ export default function Testimonials() {
         <div style={{ marginBottom: '64px', textAlign: 'center' }}>
           <span className="section-label">Client Feedback</span>
           <h2 className="section-title">Testimonials</h2>
-          <p style={{ maxWidth: '500px', margin: '16px auto 0' }}>
+          <p style={{ textAlign: 'center', maxWidth: '500px', margin: '16px auto 0' }}>
             What clients say about working with me.
           </p>
         </div>
