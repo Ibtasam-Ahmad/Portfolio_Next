@@ -29,6 +29,33 @@ const TECH_LINKS: Record<string, string> = {
   pytorch: 'https://pytorch.org',
   unsloth: 'https://unsloth.ai',
   abacusai: 'https://abacus.ai',
+  mistral: 'https://mistral.ai',
+  groq: 'https://groq.com',
+  'scikit-learn': 'https://scikit-learn.org',
+  whisper: 'https://openai.com/index/whisper/',
+
+  // ── Agents & protocols ──
+  mcp: 'https://modelcontextprotocol.io',
+  'openai agents sdk': 'https://openai.github.io/openai-agents-python/',
+  crewai: 'https://www.crewai.com',
+  autogen: 'https://microsoft.github.io/autogen/',
+  llamaindex: 'https://www.llamaindex.ai',
+
+  // ── Fine-tuning & serving ──
+  'lora & qlora': 'https://arxiv.org/abs/2106.09685',
+  quantization: 'https://huggingface.co/docs/optimum/en/concept_guides/quantization',
+  vllm: 'https://docs.vllm.ai',
+  tgi: 'https://huggingface.co/docs/text-generation-inference',
+  triton: 'https://developer.nvidia.com/triton-inference-server',
+  openrouter: 'https://openrouter.ai',
+  'sentence transformers': 'https://sbert.net',
+
+  // ── Evaluation & observability ──
+  langsmith: 'https://www.langchain.com/langsmith',
+  langfuse: 'https://langfuse.com',
+  ragas: 'https://docs.ragas.io',
+  'weights & biases': 'https://wandb.ai',
+  guardrails: 'https://www.guardrailsai.com',
 
   // ── Mathematics & theory ──
   'linear algebra': 'https://en.wikipedia.org/wiki/Linear_algebra',
@@ -42,6 +69,8 @@ const TECH_LINKS: Record<string, string> = {
   rag: 'https://arxiv.org/abs/2005.11401',
   'agentic ai': 'https://platform.openai.com/docs/guides/agents',
   'multi-agent': 'https://en.wikipedia.org/wiki/Multi-agent_system',
+  'multi-agent systems': 'https://en.wikipedia.org/wiki/Multi-agent_system',
+  'vector search': 'https://en.wikipedia.org/wiki/Nearest_neighbor_search',
   llms: 'https://en.wikipedia.org/wiki/Large_language_model',
   nlp: 'https://en.wikipedia.org/wiki/Natural_language_processing',
   'computer vision': 'https://en.wikipedia.org/wiki/Computer_vision',
@@ -55,6 +84,7 @@ const TECH_LINKS: Record<string, string> = {
   fastapi: 'https://fastapi.tiangolo.com',
   flask: 'https://flask.palletsprojects.com',
   celery: 'https://docs.celeryq.dev',
+  pydantic: 'https://docs.pydantic.dev',
   twilio: 'https://www.twilio.com',
   vapi: 'https://vapi.ai',
 
@@ -71,10 +101,14 @@ const TECH_LINKS: Record<string, string> = {
   faiss: 'https://faiss.ai',
   pinecone: 'https://www.pinecone.io',
   chroma: 'https://www.trychroma.com',
+  qdrant: 'https://qdrant.tech',
+  weaviate: 'https://weaviate.io',
+  pgvector: 'https://github.com/pgvector/pgvector',
   bigquery: 'https://cloud.google.com/bigquery',
 
   // ── Cloud & DevOps ──
   docker: 'https://www.docker.com',
+  kubernetes: 'https://kubernetes.io',
   aws: 'https://aws.amazon.com',
   azure: 'https://azure.microsoft.com',
   'github actions': 'https://github.com/features/actions',

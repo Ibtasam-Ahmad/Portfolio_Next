@@ -6,9 +6,10 @@ import TechChip from '@/components/TechChip';
 
 export default function Projects() {
   const { projects } = content;
+  const copy = content.sections.projects;
 
   return (
-    <section id="work" className="section">
+    <section id="work" className="section" aria-labelledby="work-heading">
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,12 +17,29 @@ export default function Projects() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">Selected Work</span>
-          <h2 className="section-title">Projects</h2>
-          <p style={{ maxWidth: '500px', lineHeight: 1.8 }}>
-            Real systems built for real clients, with measurable outcomes, not just impressive tech stacks.
-          </p>
+        {/* Split head, as in Services: the heading and intro never fill a
+            1200px row, so the right half of this section read as unfinished.
+            A KPI row of stat tiles is the correct form for a handful of
+            headline numbers (not a chart), and it answers the question the
+            intro raises, namely how twelve relates to the whole body of work. */}
+        <div className="section-head-split">
+          <div>
+            <span className="section-label">{copy.label}</span>
+            <h2 id="work-heading" className="section-title">{copy.heading}</h2>
+            <p style={{ lineHeight: 1.8 }}>{copy.intro}</p>
+          </div>
+
+          <aside className="card head-aside">
+            <h3 className="head-aside-title">{copy.aside.heading}</h3>
+            <dl className="head-stats">
+              {copy.aside.stats.map((stat) => (
+                <div key={stat.label} className="head-stat">
+                  <dt className="head-stat-value">{stat.value}</dt>
+                  <dd className="head-stat-label">{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '24px' }}>

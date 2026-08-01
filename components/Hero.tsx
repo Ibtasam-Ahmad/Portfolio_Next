@@ -28,12 +28,20 @@ export default function Hero() {
             {hero.location}
           </p>
 
-          <h1 style={{ marginBottom: '6px', lineHeight: 1.05 }}>
-            {hero.greetingPrefix} <span className="accent-text">{hero.name}</span>
-          </h1>
-          <h1 style={{ marginBottom: '28px', color: 'var(--text-secondary)', fontWeight: 700, lineHeight: 1.1 }}>
-            {hero.headlineLine1}<br />
-            <span style={{ color: 'var(--text-primary)' }}>{hero.headlineLine2}</span>
+          {/* ONE h1 for the document. This was previously two stacked <h1>
+              elements, which splits the page's primary heading in half and is
+              the single most common on-page SEO defect. The two lines are now
+              block-level spans inside a single h1 — pixel-identical output,
+              one unambiguous headline for a crawler and for a screen reader's
+              heading list. */}
+          <h1 className="hero-h1">
+            <span className="hero-greeting">
+              {hero.greetingPrefix} <span className="accent-text">{hero.name}</span>
+            </span>
+            <span className="hero-headline">
+              {hero.headlineLine1}<br />
+              <span className="hero-headline-strong">{hero.headlineLine2}</span>
+            </span>
           </h1>
 
           <p style={{ maxWidth: '580px', marginBottom: '44px', lineHeight: 1.85, fontSize: '1.125rem' }}>

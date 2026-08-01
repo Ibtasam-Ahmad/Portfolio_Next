@@ -5,9 +5,15 @@ import content from '@/data/content.json';
 
 export default function Experience() {
   const { experience } = content;
+  const copy = content.sections.experience;
 
   return (
-    <section id="experience" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <section
+      id="experience"
+      className="section"
+      aria-labelledby="experience-heading"
+      style={{ background: 'var(--bg-secondary)' }}
+    >
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,11 +22,9 @@ export default function Experience() {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">Career Journey</span>
-          <h2 className="section-title">Experience</h2>
-          <p style={{ marginTop: '16px', maxWidth: '500px' }}>
-            4+ years of experience building production-ready AI systems and full-stack applications.
-          </p>
+          <span className="section-label">{copy.label}</span>
+          <h2 id="experience-heading" className="section-title">{copy.heading}</h2>
+          <p style={{ marginTop: '16px', maxWidth: '620px', lineHeight: 1.8 }}>{copy.intro}</p>
         </div>
 
         <div style={{ position: 'relative', paddingLeft: '32px' }}>

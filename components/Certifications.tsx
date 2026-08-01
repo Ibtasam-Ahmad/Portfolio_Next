@@ -5,9 +5,10 @@ import content from '@/data/content.json';
 
 export default function Certifications() {
   const { certifications } = content;
+  const copy = content.sections.certifications;
 
   return (
-    <section id="certifications" className="section">
+    <section id="certifications" className="section" aria-labelledby="certifications-heading">
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,14 +17,12 @@ export default function Certifications() {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">Credentials</span>
-          <h2 className="section-title">Certifications</h2>
-          <p style={{ marginTop: '16px', maxWidth: '500px' }}>
-            Professional certifications validating AI expertise.
-          </p>
+          <span className="section-label">{copy.label}</span>
+          <h2 id="certifications-heading" className="section-title">{copy.heading}</h2>
+          <p style={{ marginTop: '16px', maxWidth: '640px', lineHeight: 1.8 }}>{copy.intro}</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '24px' }}>
+        <div className="tile-grid">
           {certifications.map((cert) => (
             <div
               key={cert.id}

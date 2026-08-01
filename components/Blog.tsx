@@ -5,9 +5,15 @@ import content from '@/data/content.json';
 
 export default function Blog() {
   const { blog } = content;
+  const copy = content.sections.blog;
 
   return (
-    <section id="blog" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <section
+      id="blog"
+      className="section"
+      aria-labelledby="blog-heading"
+      style={{ background: 'var(--bg-secondary)' }}
+    >
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,11 +22,9 @@ export default function Blog() {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">Writing</span>
-          <h2 className="section-title">Blog</h2>
-          <p style={{ marginTop: '16px', maxWidth: '500px' }}>
-            Articles on AI, Machine Learning, and Technology.
-          </p>
+          <span className="section-label">{copy.label}</span>
+          <h2 id="blog-heading" className="section-title">{copy.heading}</h2>
+          <p style={{ marginTop: '16px', maxWidth: '620px', lineHeight: 1.8 }}>{copy.intro}</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '32px' }}>
@@ -34,7 +38,7 @@ export default function Blog() {
               target="_blank"
               rel="noopener noreferrer"
               className="card blog-card"
-              aria-label={`${post.title} — read on Medium`}
+              aria-label={`${post.title}, read on Medium`}
               style={{
                 background: 'var(--bg-tertiary)',
                 padding: '32px',

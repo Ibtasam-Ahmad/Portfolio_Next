@@ -5,7 +5,12 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import content from '@/data/content.json';
 import { DESIGN_STYLES, DEFAULT_DESIGN_STYLE, type DesignStyleId } from '@/lib/designStyles';
-import { STYLE_USED_EVENT } from '@/lib/catSprites';
+import {
+  STYLE_STORAGE_KEY,
+  STYLE_USED_EVENT,
+  randomizeDesignStyle,
+  type StyleUsedDetail,
+} from '@/lib/styleSwitcher';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,14 +37,29 @@ export default function Header() {
     // Validate against the current list: a value saved by an older build (or
     // hand-edited) would otherwise set an unmatched data-style and silently
     // fall back to the base neutrals with no style applied.
-    const savedStyle = localStorage.getItem('designStyle');
+    const savedStyle = localStorage.getItem(STYLE_STORAGE_KEY);
     if (savedStyle && DESIGN_STYLES.some((s) => s.id === savedStyle)) {
       setDesignStyle(savedStyle as DesignStyleId);
     } else if (savedStyle) {
-      localStorage.removeItem('designStyle');
+      localStorage.removeItem(STYLE_STORAGE_KEY);
       document.documentElement.removeAttribute('data-style');
     }
   }, []);
+
+  /* The style can now be rolled from two places — this header's button and a
+     click on the pixel cat — so the label and toast react to the ANNOUNCEMENT
+     rather than to the button's own click handler. Whichever control fired it,
+     the header stays current. */
+  useEffect(() => {
+    const onStyleUsed = (e: Event) => {
+      const detail = (e as CustomEvent<StyleUsedDetail>).detail;
+      if (!detail) return;
+      setDesignStyle(detail.styleId);
+      showToast({ kind: 'style', label: 'Style', value: detail.label });
+    };
+    window.addEventListener(STYLE_USED_EVENT, onStyleUsed);
+    return () => window.removeEventListener(STYLE_USED_EVENT, onStyleUsed);
+  }, [showToast]);
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
@@ -49,15 +69,11 @@ export default function Header() {
     showToast({ kind: next, label: 'Theme', value: next === 'light' ? 'Light mode' : 'Dark mode' });
   };
 
+  /* Applying, persisting and announcing all happen in randomizeDesignStyle();
+     the listener above turns the announcement into this header's state and
+     toast. See lib/styleSwitcher.ts. */
   const randomizeStyle = () => {
-    const options = DESIGN_STYLES.filter((s) => s.id !== designStyle);
-    const next = options[Math.floor(Math.random() * options.length)];
-    setDesignStyle(next.id);
-    localStorage.setItem('designStyle', next.id);
-    document.documentElement.setAttribute('data-style', next.id);
-    showToast({ kind: 'style', label: 'Style', value: next.label });
-    // Carries the new style id so the cat knows which power to put on.
-    window.dispatchEvent(new CustomEvent(STYLE_USED_EVENT, { detail: { styleId: next.id } }));
+    randomizeDesignStyle();
   };
 
   useEffect(() => {

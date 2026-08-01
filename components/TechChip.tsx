@@ -27,7 +27,7 @@ export default function TechChip({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      title={`${label} — open official site`}
+      title={`Open the official ${label} site`}
     >
       {label}
       <svg

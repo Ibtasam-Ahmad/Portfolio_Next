@@ -117,6 +117,19 @@ p, .card li {
 /* Accent text (used sparingly - names, small emphasis) */
 .accent-text { color: var(--accent); }
 
+/* Hero headline. One <h1> holding two block-level lines — see Hero.tsx for
+   why this is one element rather than the two stacked h1s it replaced. The
+   spans inherit the h1 clamp, so the rendered size is unchanged. */
+.hero-h1 { margin-bottom: 28px; }
+.hero-greeting { display: block; line-height: 1.05; margin-bottom: 6px; }
+.hero-headline {
+  display: block;
+  color: var(--text-secondary);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.hero-headline-strong { color: var(--text-primary); }
+
 /* Section label */
 .section-label {
   font-family: var(--font-mono);
@@ -530,6 +543,223 @@ a.tech-chip:hover svg, a.tech-chip:focus-visible svg {
   color: var(--text-muted);
 }
 
+/* Split section heading: copy on the left, a supporting panel on the right.
+   Generic on purpose so any section whose heading block leaves the right half
+   of the row empty can adopt it. minmax(0, …) on both tracks stops a long
+   unbroken string in either column from pushing the grid wider than its
+   container. */
+.section-head-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  gap: 56px;
+  /* stretch, not start: the aside is a bordered card, so sizing it to its own
+     list left its bottom edge floating short of the heading column next to it.
+     Tying it to the row height keeps both columns ending on the same line. */
+  align-items: stretch;
+  margin-bottom: 64px;
+}
+@media (max-width: 900px) {
+  .section-head-split { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+
+.head-industries { margin-top: 32px; }
+.head-industries .skill-group-label { margin-top: 0; }
+.head-industries-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.head-aside { padding: 28px; }
+.head-aside-title {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+.head-aside-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.head-aside-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  /* Opts out of the global justified-copy rule: at this measure justification
+     opens visible rivers between words. */
+  text-align: left;
+}
+.head-aside-list svg { flex-shrink: 0; margin-top: 3px; }
+
+/* KPI row (Projects head). Four headline counts are a stat-tile row, not a
+   chart: there is nothing to compare, so there is nothing to plot. The value
+   stays in the body sans rather than the monospace used for metadata, and
+   keeps the font's proportional figures, since tabular-nums sets every digit
+   to the width of a zero and leaves a number like "12" visibly loose at this
+   size. Ink is primary/muted throughout: with no series to identify, colour
+   here would be decoration competing with the heading. */
+.head-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 18px;
+  margin: 0;
+}
+.head-stat-value {
+  font-size: 1.75rem;
+  font-weight: 650;
+  line-height: 1.1;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.head-stat-label {
+  margin: 5px 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+/* The head-split proportions applied to a section body rather than its
+   heading, for sections whose main content does not want the full 1200px
+   measure (Publications). Same tracks and gap, so the page keeps one rhythm. */
+.split-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  gap: 56px;
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .split-body { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+
+.pub-meta { display: flex; flex-direction: column; gap: 14px; margin: 0 0 4px; }
+.pub-meta dt {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.pub-meta dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+.pub-citation {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  /* Opts out of the global justified-copy rule: a citation at this measure
+     justifies into visible rivers. */
+  text-align: left;
+}
+
+/* Tile grid for sections whose item count is whatever it happens to be
+   (Certifications, Testimonials). An auto-fit CSS grid left a part-filled
+   final row hugging the left edge, so 7 cards in a 3-wide grid read as a
+   missing card rather than as seven cards. Flex wrap with a centred final
+   row makes any count look deliberate, so the content never has to be padded
+   to a multiple of three. The max-widths reproduce the grid's column maths
+   exactly, so a full row still lines up with the sections above and below. */
+.tile-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+.tile-grid > * { flex: 1 1 280px; max-width: 100%; }
+@media (min-width: 700px) {
+  .tile-grid > * { max-width: calc(50% - 12px); }
+}
+@media (min-width: 1000px) {
+  .tile-grid > * { max-width: calc(33.333% - 16px); }
+}
+
+/* Numbered process (Approach head). */
+.head-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+.head-steps li { display: flex; gap: 12px; align-items: flex-start; }
+.head-step-n {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  padding-top: 3px;
+}
+.head-step-label {
+  margin: 0 0 3px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+.head-step-text {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.head-aside-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Testimonial — <figure> + <blockquote> + <figcaption>. The styling is
+   carried here rather than inline because the semantic elements arrive with
+   browser defaults (blockquote margins, italic <cite>) that have to be
+   unset in one place. */
+.testimonial-card { padding: 28px; }
+.testimonial-quote { margin: 0 0 24px; }
+.testimonial-quote p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.testimonial-attribution { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+.testimonial-name {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.testimonial-role {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
 /* Blog card — the whole card is the link, so the inner "Read More" is a
    <span> and its arrow has to react to hover on the card, not on itself. */
 .blog-card { display: block; }
@@ -673,6 +903,10 @@ a.tech-chip:hover svg, a.tech-chip:focus-visible svg {
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 ::selection { background: var(--accent); color: var(--on-accent); }
 
+/* Nav collapses to the hamburger here. Five section links plus the three
+   controls fit beside the wordmark comfortably down to this width; an earlier
+   eight-link version did not, and needed the switch at 1080px. If links are
+   added back, re-measure rather than assuming this still holds. */
 @media (max-width: 768px) {
   :root { --spacing-section: 80px; }
   .nav-desktop-links { display: none; }
@@ -851,8 +1085,10 @@ a.tech-chip:hover svg, a.tech-chip:focus-visible svg {
      one can never move the cat. */
   width: 72px;
   height: 72px;
-  /* Pick it up and put it anywhere. */
-  cursor: grab;
+  /* Clicking restyles the site; dragging moves the cat. `pointer` advertises
+     the first, since that is the action nobody would guess otherwise —
+     `grabbing` below covers the second once a drag is actually underway. */
+  cursor: pointer;
   touch-action: none;
   -webkit-user-select: none;
   user-select: none;
@@ -864,6 +1100,13 @@ a.tech-chip:hover svg, a.tech-chip:focus-visible svg {
   cursor: grabbing;
   transition: none;
   z-index: 260;
+}
+/* It is a button now, so it takes focus. The ring goes on the wrapper rather
+   than the sprite so it traces the whole 72px target. */
+.pixel-cat-wrap:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 @media (prefers-reduced-motion: reduce) {
   .pixel-cat-wrap { transition: none; }
@@ -879,6 +1122,21 @@ a.tech-chip:hover svg, a.tech-chip:focus-visible svg {
 }
 .pixel-cat.is-idle { animation: cat-bob 2.4s ease-in-out infinite; }
 .pixel-cat.is-walking { animation: cat-bob 0.52s ease-in-out infinite; }
+
+/* Laptop lift on hover. The step is one 3px cell, not a smooth glide: on a
+   sprite drawn to a pixel grid a sub-cell offset lands the shell between
+   pixels and the crispEdges rendering shows it as a torn edge. Lives on the
+   inner <g>, so it composes with the whole-sprite bob above rather than
+   fighting it for the same transform. */
+@keyframes cat-laptop-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.cat-laptop { transform-box: fill-box; }
+.pixel-cat-wrap:hover .cat-laptop,
+.pixel-cat-wrap:focus-visible .cat-laptop {
+  animation: cat-laptop-bob 0.55s steps(2, jump-none) infinite;
+}
 
 /* Arrow from the cat up to the button it is pointing at. 36px from the
    container's right edge centres it on the 72px sprite. */
@@ -956,6 +1214,8 @@ a.tech-chip:hover svg, a.tech-chip:focus-visible svg {
   /* The cat still appears and still morphs — it just stops moving. */
   .pixel-cat.is-idle,
   .pixel-cat.is-walking,
+  .pixel-cat-wrap:hover .cat-laptop,
+  .pixel-cat-wrap:focus-visible .cat-laptop,
   .cat-pointer,
   .style-switcher.is-nudged,
   .nav-hamburger.is-nudged { animation: none; }

@@ -3,7 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import content from '@/data/content.json';
-import { DESIGN_STYLES, type DesignStyleId } from '@/lib/designStyles';
+import { type DesignStyleId } from '@/lib/designStyles';
+import {
+  STYLE_STORAGE_KEY,
+  STYLE_USED_EVENT,
+  labelForStyle,
+  randomizeDesignStyle,
+  type StyleUsedDetail,
+} from '@/lib/styleSwitcher';
 import {
   CAT_FIRE,
   CAT_POWERS,
@@ -11,7 +18,6 @@ import {
   EYES,
   PUPIL,
   SPRITE_PX,
-  STYLE_USED_EVENT,
   catCells,
   fillFor,
 } from '@/lib/catSprites';
@@ -34,12 +40,21 @@ import {
 
   Note: there is now no way to dismiss it permanently. Dragging it out of the
   way is the escape hatch.
+
+  CLICK vs DRAG: a click rolls a new design style — the same action as the
+  header's "Try a Look" button, routed through the same lib/styleSwitcher entry
+  point so the header's label and toast stay in sync. A drag just moves the
+  cat. The two are told apart by distance travelled, not by whether the pointer
+  moved at all: a touch that wanders three pixels is still a tap, and treating
+  it as a drag made the cat feel unclickable on a phone.
 */
 
 const CAT = content.cat;
 
-const STYLE_KEY = 'designStyle';
 const SEEN_KEY = 'pixelCatSeen';
+
+/** Pointer travel, in px, past which a press stops counting as a click. */
+const DRAG_SLOP = 5;
 
 const ARRIVE_SECONDS = 5;
 const LINGER_MS = 9000;
@@ -89,6 +104,7 @@ export default function PixelCat() {
   const sayTimer = useRef<number | undefined>(undefined);
   const posRef = useRef<Pos | null>(null);
   const dragOffset = useRef({ x: 0, y: 0 });
+  const dragStart = useRef({ x: 0, y: 0 });
   const dragMoved = useRef(false);
   const rafRef = useRef<number | undefined>(undefined);
   const reduced = useReducedMotion();
@@ -124,7 +140,7 @@ export default function PixelCat() {
     let seen = false;
     try {
       seen = localStorage.getItem(SEEN_KEY) === '1';
-      const saved = localStorage.getItem(STYLE_KEY);
+      const saved = localStorage.getItem(STYLE_STORAGE_KEY);
       if (saved && saved in CAT_POWERS) setStyle(saved as DesignStyleId);
     } catch {
       /* ignore */
@@ -190,16 +206,16 @@ export default function PixelCat() {
   // ── The morph ──
   useEffect(() => {
     const onUsed = (e: Event) => {
-      const id = (e as CustomEvent<{ styleId?: DesignStyleId }>).detail?.styleId;
+      const id = (e as CustomEvent<StyleUsedDetail>).detail?.styleId;
       if (!id || !(id in CAT_POWERS)) return;
-      const label = DESIGN_STYLES.find((s) => s.id === id)?.label ?? id;
+      const label = labelForStyle(id);
       if (phase === 'arriving') park();
       setChanges((c) => c + 1);
       setFire(null);
 
       if (reduced) {
         setStyle(id);
-        speak(`${label} — ${CAT_POWERS[id].power} unlocked!`);
+        speak(`${label}: ${CAT_POWERS[id].power} unlocked!`);
         return;
       }
 
@@ -210,7 +226,7 @@ export default function PixelCat() {
       window.clearTimeout(morphTimer.current);
       morphTimer.current = window.setTimeout(() => {
         setStyle(id);
-        speak(`${label} — ${CAT_POWERS[id].power} unlocked!`);
+        speak(`${label}: ${CAT_POWERS[id].power} unlocked!`);
       }, SPIN_MS / 2);
     };
     window.addEventListener(STYLE_USED_EVENT, onUsed);
@@ -231,7 +247,7 @@ export default function PixelCat() {
       if (idle >= FIRE_AFTER_S) {
         window.clearInterval(t);
         setFire(0);
-        speak(`Bored. ${CAT.name} is combusting — hit "Try a Look".`);
+        speak(CAT.bored.replace('{name}', CAT.name));
       }
     }, 1000);
     return () => window.clearInterval(t);
@@ -294,11 +310,21 @@ export default function PixelCat() {
     };
   }, [phase, reduced]);
 
+  /* Clicking the cat is the same action as the header's "Try a Look" button.
+     Nothing is applied here: randomizeDesignStyle() rolls, persists and
+     announces, and the STYLE_USED_EVENT listener above does the morphing and
+     the speaking — so a click through the cat and a click through the button
+     produce byte-identical behaviour. */
+  const activate = useCallback(() => {
+    randomizeDesignStyle();
+  }, []);
+
   // ── Pick it up and put it anywhere ──
   const onPointerDown = (e: React.PointerEvent) => {
     if (!pos) return;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     dragOffset.current = { x: e.clientX - pos.left, y: e.clientY - pos.top };
+    dragStart.current = { x: e.clientX, y: e.clientY };
     dragMoved.current = false;
     setDragging(true);
     // Once picked up it stops being the button's business.
@@ -307,7 +333,14 @@ export default function PixelCat() {
 
   const onPointerMove = (e: React.PointerEvent) => {
     if (!dragging) return;
-    dragMoved.current = true;
+    // Only past the slop threshold does this become a drag — see DRAG_SLOP.
+    if (
+      Math.abs(e.clientX - dragStart.current.x) > DRAG_SLOP ||
+      Math.abs(e.clientY - dragStart.current.y) > DRAG_SLOP
+    ) {
+      dragMoved.current = true;
+    }
+    if (!dragMoved.current) return;
     setPos({
       left: clamp(e.clientX - dragOffset.current.x, 0, window.innerWidth - SPRITE_PX),
       top: clamp(e.clientY - dragOffset.current.y, 0, window.innerHeight - SPRITE_PX),
@@ -320,9 +353,16 @@ export default function PixelCat() {
     setDragging(false);
     if (phase === 'arriving') setPhase('parked');
     // A drag must not also read as a click.
-    if (!dragMoved.current) {
-      speak(style ? `${CAT_POWERS[style].power}. Hit "Try a Look" for another.` : CAT.idle);
-    }
+    if (!dragMoved.current) activate();
+  };
+
+  /* The cat is a real control now, so it has to be reachable and operable
+     without a pointer — a mouse-only restyle would be the one interaction on
+     the page a keyboard user cannot perform. */
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    activate();
   };
 
   // Keep it on screen when the viewport changes.
@@ -346,6 +386,24 @@ export default function PixelCat() {
   const cells = catCells(style, legs, fire);
   const power = style ? CAT_POWERS[style].power : null;
 
+  /* Rows 17 to 20 hold the laptop, but not the whole of those rows: the "X"
+     cells at either end are the paws holding it, and row 20 carries a piece
+     of tail. Selecting by glyph instead of by row picks up the shell ("o")
+     and screen ("S") only, so the lift moves the laptop and nothing else. */
+  const isLaptop = (c: { y: number; c: string }) =>
+    c.y >= 17 && c.y <= 20 && (c.c === 'o' || c.c === 'S');
+
+  const renderCell = (c: (typeof cells)[number]) => (
+    <rect
+      key={`${c.x}-${c.y}`}
+      x={c.x * CELL}
+      y={c.y * CELL}
+      width={CELL}
+      height={CELL}
+      fill={fillFor(c.c, c.hex)}
+    />
+  );
+
   return (
     <motion.div
       className={`pixel-cat-wrap${dragging ? ' is-dragging' : ''}`}
@@ -361,12 +419,18 @@ export default function PixelCat() {
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
       onPointerCancel={onPointerUp}
-      role="img"
+      onKeyDown={onKeyDown}
+      role="button"
+      tabIndex={0}
+      /* Names the ACTION, not the picture: for a control, "click to change the
+         design style" is the useful half, and the cat's current power is
+         context after it. */
       aria-label={
         power
-          ? `${CAT.name}, the ${CAT.role}. Current power: ${power}`
-          : `${CAT.name}, the ${CAT.role}`
+          ? `${CAT.name}, the ${CAT.role}. ${CAT.action}. Current power: ${power}`
+          : `${CAT.name}, the ${CAT.role}. ${CAT.action}`
       }
+      title={CAT.action}
     >
       <AnimatePresence>
         {say && (
@@ -401,16 +465,27 @@ export default function PixelCat() {
         viewBox={`0 0 ${SPRITE_PX} ${SPRITE_PX}`}
         aria-hidden="true"
       >
-        {cells.map((c) => (
+        {cells.filter((c) => !isLaptop(c)).map(renderCell)}
+
+        {/* Fur painted across the laptop's whole footprint, underneath it.
+            The sprite has nothing behind the laptop, so lifting it punched a
+            transparent hole through the cat and you saw the page through its
+            middle. Backing the full footprint rather than just the row that
+            gets vacated keeps it covered whatever the lift distance is. */}
+        {cells.filter(isLaptop).map((c) => (
           <rect
-            key={`${c.x}-${c.y}`}
+            key={`fur-${c.x}-${c.y}`}
             x={c.x * CELL}
             y={c.y * CELL}
             width={CELL}
             height={CELL}
-            fill={fillFor(c.c, c.hex)}
+            fill={fillFor('X')}
           />
         ))}
+
+        {/* Own group so hover can lift the laptop without the cat rising with
+            it. Grouped after the body so it keeps painting over the paws. */}
+        <g className="cat-laptop">{cells.filter(isLaptop).map(renderCell)}</g>
 
         {/* Pupils ride on top of the eye whites so they can roam. */}
         {[EYES.lx, EYES.rx].map((sx) => (

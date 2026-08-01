@@ -31,10 +31,6 @@ export const CELL = 3;
 export const GRID = 24;
 export const SPRITE_PX = CELL * GRID;
 
-/** Event Header fires when the style switcher is used. Lives here rather than
- *  in the component so Header doesn't have to import the cat to announce it. */
-export const STYLE_USED_EVENT = 'styleswitcher:used';
-
 /** Eye sockets, in grid cells. Pupils are 2×2 and roam inside these. */
 export const EYES = { w: 5, h: 3, y: 6, lx: 5, rx: 14 };
 export const PUPIL = 2;

@@ -5,9 +5,10 @@ import content from '@/data/content.json';
 
 export default function Resume() {
   const { resume } = content;
+  const copy = content.sections.resume;
 
   return (
-    <section id="resume" className="section">
+    <section id="resume" className="section" aria-labelledby="resume-heading">
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,11 +17,9 @@ export default function Resume() {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">Resume</span>
-          <h2 className="section-title">Download CV</h2>
-          <p style={{ marginTop: '16px', maxWidth: '500px' }}>
-            Download my resume to learn more about my experience and skills.
-          </p>
+          <span className="section-label">{copy.label}</span>
+          <h2 id="resume-heading" className="section-title">{copy.heading}</h2>
+          <p style={{ marginTop: '16px', maxWidth: '560px', lineHeight: 1.8 }}>{copy.intro}</p>
         </div>
 
         <div
@@ -40,9 +39,9 @@ export default function Resume() {
               <line x1="16" y1="17" x2="8" y2="17" />
               <polyline points="10,9 9,9 8,9" />
             </svg>
-            <h3 style={{ marginBottom: '16px' }}>Download My Resume</h3>
-            <p style={{ textAlign: 'center', maxWidth: '500px', margin: '0 auto 32px', lineHeight: 1.8 }}>
-              Get the full details of my experience, education, skills, and projects. Let&apos;s connect and discuss how I can help with your AI projects.
+            <h3 style={{ marginBottom: '16px' }}>{copy.cardHeading}</h3>
+            <p style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto 32px', lineHeight: 1.8 }}>
+              {copy.cardBody}
             </p>
           </div>
           <a
@@ -57,14 +56,14 @@ export default function Resume() {
               <polyline points="7,10 12,15 17,10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            Download Resume
+            {copy.cta}
           </a>
         </div>
 
         {/* One column, so a one-column auto-fit grid wrapping a single child
             was doing nothing. Education entries stack directly. */}
         <div style={{ marginTop: '48px' }}>
-          <h3 style={{ marginBottom: '24px' }}>Education</h3>
+          <h3 style={{ marginBottom: '24px' }}>{copy.educationHeading}</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
             {resume.education.map((edu) => (
               <div key={edu.id} style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>

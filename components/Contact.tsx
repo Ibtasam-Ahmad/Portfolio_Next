@@ -39,7 +39,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <section
+      id="contact"
+      className="section"
+      aria-labelledby="contact-heading"
+      style={{ background: 'var(--bg-secondary)' }}
+    >
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -47,11 +52,17 @@ export default function Contact() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '64px', alignItems: 'start' }}>
-          {/* Left: info */}
-          <div>
-            <span className="section-label">Get In Touch</span>
-            <h2 className="section-title">{contact.heading}</h2>
+        {/* Same reason as About: the form card sized to its own fields and
+            stopped short of the contact column beside it. `stretch` lands both
+            columns on the same bottom edge. */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '64px', alignItems: 'stretch' }}>
+          {/* Left: info. The contact channels are bordered cards, as is the
+              form opposite, so both edges read: sized naturally the last
+              channel ended 178px above the form's bottom. Distributing the
+              spare height between the blocks lands them level instead. */}
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <span className="section-label">{contact.label}</span>
+            <h2 id="contact-heading" className="section-title">{contact.heading}</h2>
             <p style={{ marginBottom: '32px', lineHeight: 1.85 }}>
               {contact.paragraph}
             </p>
@@ -114,7 +125,7 @@ export default function Contact() {
 
           {/* Right: form */}
           <div className="card" style={{ padding: '36px' }}>
-            <h3 style={{ marginBottom: '28px', fontSize: '1.25rem' }}>Send a Message</h3>
+            <h3 style={{ marginBottom: '28px', fontSize: '1.25rem' }}>{contact.formHeading}</h3>
             {status === 'sent' ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>✓</div>
@@ -160,7 +171,7 @@ export default function Contact() {
                       That didn&apos;t go through.
                     </p>
                     <p style={{ fontSize: '0.875rem', margin: '4px 0 0' }}>
-                      Your message is still in the form — try again, or reach me directly at{' '}
+                      Your message is still in the form. Try again, or reach me directly at{' '}
                       <a href="mailto:shibtasam@gmail.com" style={{ color: 'var(--accent)', fontWeight: 600 }}>
                         shibtasam@gmail.com
                       </a>{' '}

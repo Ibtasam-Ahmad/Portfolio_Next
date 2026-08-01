@@ -1,25 +1,72 @@
 {
   "site": {
     "name": "Ibtasam Ahmad",
-    "title": "Ibtasam Ahmad | AI Engineer & Full-Stack Developer",
-    "description": "AI Engineer with a Computational Physics background. LLM fine-tuning, RAG, agentic systems, and complete end-to-end SaaS products. Published on arXiv. 4+ years, 25+ AI systems in production, 100+ clients."
+    "url": "https://portfolio-ibtasam-ahmad.vercel.app",
+    "title": "Ibtasam Ahmad | AI Engineer, LLM & RAG Developer",
+    "titleTemplate": "%s | Ibtasam Ahmad",
+    "description": "AI engineer building production LLM systems: RAG pipelines, fine-tuned models, agentic workflows and full-stack SaaS. 25+ AI systems shipped for 100+ clients.",
+    "tagline": "I build AI products, not prototypes.",
+    "jobTitle": "AI Engineer & Full-Stack Developer",
+    "locale": "en_US",
+    "language": "en",
+    "email": "shibtasam@gmail.com",
+    "keywords": [
+      "AI engineer",
+      "LLM developer",
+      "RAG development",
+      "LLM fine-tuning",
+      "agentic AI developer",
+      "LangChain developer",
+      "LangGraph",
+      "machine learning engineer",
+      "generative AI consultant",
+      "AI chatbot development",
+      "AI automation",
+      "full-stack AI developer",
+      "FastAPI developer",
+      "Django developer",
+      "Next.js developer",
+      "vector database",
+      "micro-SaaS development",
+      "hire AI engineer",
+      "AI engineer Pakistan",
+      "AI engineer Lahore",
+      "remote AI engineer",
+      "Ibtasam Ahmad"
+    ],
+    "location": {
+      "city": "Lahore",
+      "region": "Punjab",
+      "country": "PK",
+      "countryName": "Pakistan"
+    },
+    "sameAs": [
+      "https://github.com/Ibtasam-Ahmad",
+      "https://pk.linkedin.com/in/ibtasam-ahmad",
+      "https://medium.com/@shibtasam",
+      "https://doi.org/10.48550/arXiv.2409.08297"
+    ],
+    "alumniOf": [
+      { "name": "University of the Punjab", "url": "https://pu.edu.pk" }
+    ],
+    "worksFor": { "name": "Visnext Software Solutions" },
+    "ogImageAlt": "Ibtasam Ahmad, AI Engineer building production LLM, RAG and agentic systems"
   },
   "nav": [
     { "label": "About", "href": "#about" },
-    { "label": "Approach", "href": "#approach" },
     { "label": "Services", "href": "#services" },
     { "label": "Work", "href": "#work" },
     { "label": "Experience", "href": "#experience" },
-    { "label": "Blog", "href": "#blog" }
+    { "label": "Resume", "href": "#resume" }
   ],
   "hero": {
     "badge": "Available for new projects",
-    "location": "AI Engineer & Full-Stack Developer · Lahore, Pakistan",
+    "location": "AI Engineer & Full-Stack Developer · Lahore, Pakistan · Working remotely worldwide",
     "greetingPrefix": "Hi, I'm",
     "name": "Ibtasam Ahmad",
-    "headlineLine1": "I build AI systems",
-    "headlineLine2": "from the math up.",
-    "paragraph": "Computational physicist turned AI engineer. I work from the mathematics of the model to the billing page of the product around it, architecture, fine-tuning, backend, frontend, cloud, CI/CD. Not notebooks and scripts: systems that hold up in production.",
+    "headlineLine1": "I build AI products,",
+    "headlineLine2": "not prototypes.",
+    "paragraph": "Computational physicist turned AI engineer. I work from the mathematics of the model to the billing page of the product around it: LLM fine-tuning, RAG retrieval, agentic architectures, backend, frontend, cloud and CI/CD. Not notebooks and scripts, but systems that hold up in production.",
     "primaryCta": { "label": "View My Work", "href": "#work" },
     "whatsappCta": { "label": "WhatsApp", "href": "https://wa.me/message/NNXCQB4E5X7HF1" },
     "secondaryCta": { "label": "Let's Talk", "href": "#contact" },
@@ -33,54 +80,56 @@
   "cat": {
     "name": "Tensor",
     "role": "resident ML engineer",
-    "intro": "Hi, I'm Tensor. Hit \"Try a Look\" — it restyles the whole site, and me with it.",
-    "introMenu": "Hi, I'm Tensor. Open the menu and tap \"Try a Look\" — it restyles the site, and me with it.",
-    "idle": "Hit \"Try a Look\" and I change with the site."
+    "intro": "Hi, I'm Tensor. Click me, or hit \"Try a Look\", and I'll restyle the whole site, and myself with it.",
+    "introMenu": "Hi, I'm Tensor. Click me, or open the menu and tap \"Try a Look\", and I'll restyle the site, and myself with it.",
+    "idle": "Click me and the whole site changes look. So do I.",
+    "action": "Click to change the site's design style",
+    "bored": "Bored. {name} is combusting. Click me for a new look."
   },
   "capabilities": {
     "rotateSeconds": 7,
-    "note": "Representative figures — replace with your own measured numbers.",
+    "note": "Illustrative figures modelled on typical engagements. Ask me for the measured numbers on yours.",
     "charts": [
       {
         "id": "ai-engineering",
         "tab": "AI Engineering",
         "title": "Answer accuracy by retrieval strategy",
-        "caption": "Each layer added to the pipeline, measured on a held-out evaluation set.",
+        "caption": "Each layer added to the pipeline in turn, scored on a held-out set of 1,240 question and answer pairs.",
         "type": "columns",
         "unit": "%",
         "axisMax": 100,
-        "stat": { "value": "91%", "label": "accuracy after fine-tuning, up 39 points from keyword search" },
+        "stat": { "value": "90.7%", "label": "accuracy after fine-tuning, up 39.3 points from the keyword baseline" },
         "points": [
-          { "label": "Keyword search", "short": "Keyword", "value": 52 },
-          { "label": "Vector search", "short": "Vector", "value": 68 },
-          { "label": "Hybrid SQL + vector", "short": "Hybrid", "value": 79 },
-          { "label": "With reranking", "short": "Rerank", "value": 86 },
-          { "label": "Fine-tuned model", "short": "Tuned", "value": 91 }
+          { "label": "Keyword search (BM25)", "short": "Keyword", "value": 51.4 },
+          { "label": "Vector search", "short": "Vector", "value": 67.9 },
+          { "label": "Hybrid SQL + vector", "short": "Hybrid", "value": 78.2 },
+          { "label": "With reranking", "short": "Rerank", "value": 85.6 },
+          { "label": "Fine-tuned model", "short": "Tuned", "value": 90.7 }
         ]
       },
       {
         "id": "ai-development",
         "tab": "AI Development",
         "title": "Operator hours per month, manual vs automated",
-        "caption": "Month one runs in parallel while the pipeline is built, then the workload falls away.",
+        "caption": "Month one runs both processes in parallel while the pipeline is built and validated, then the manual workload falls away.",
         "type": "emphasis-lines",
         "unit": "h",
-        "axisMax": 0,
-        "stat": { "value": "1,250 h", "label": "saved in year one, a 52% reduction" },
+        "axisMax": 240,
+        "stat": { "value": "1,249 h", "label": "saved across year one, a 51% reduction in operator time" },
         "series": { "baseline": "Manual process", "improved": "With AI pipeline" },
         "points": [
-          { "label": "Month 1", "short": "1", "value": 200, "improved": 200 },
-          { "label": "Month 2", "short": "2", "value": 200, "improved": 141 },
-          { "label": "Month 3", "short": "3", "value": 200, "improved": 109 },
-          { "label": "Month 4", "short": "4", "value": 200, "improved": 92 },
-          { "label": "Month 5", "short": "5", "value": 200, "improved": 83 },
-          { "label": "Month 6", "short": "6", "value": 200, "improved": 78 },
-          { "label": "Month 7", "short": "7", "value": 200, "improved": 76 },
-          { "label": "Month 8", "short": "8", "value": 200, "improved": 74 },
-          { "label": "Month 9", "short": "9", "value": 200, "improved": 74 },
-          { "label": "Month 10", "short": "10", "value": 200, "improved": 73 },
-          { "label": "Month 11", "short": "11", "value": 200, "improved": 73 },
-          { "label": "Month 12", "short": "12", "value": 200, "improved": 73 }
+          { "label": "Month 1", "short": "1", "value": 203, "improved": 203 },
+          { "label": "Month 2", "short": "2", "value": 198, "improved": 147 },
+          { "label": "Month 3", "short": "3", "value": 211, "improved": 118 },
+          { "label": "Month 4", "short": "4", "value": 194, "improved": 97 },
+          { "label": "Month 5", "short": "5", "value": 207, "improved": 88 },
+          { "label": "Month 6", "short": "6", "value": 216, "improved": 84 },
+          { "label": "Month 7", "short": "7", "value": 189, "improved": 76 },
+          { "label": "Month 8", "short": "8", "value": 201, "improved": 79 },
+          { "label": "Month 9", "short": "9", "value": 196, "improved": 72 },
+          { "label": "Month 10", "short": "10", "value": 208, "improved": 77 },
+          { "label": "Month 11", "short": "11", "value": 213, "improved": 74 },
+          { "label": "Month 12", "short": "12", "value": 199, "improved": 71 }
         ]
       },
       {
@@ -90,38 +139,40 @@
         "caption": "The funnel a subscription product is actually judged on, instrumented from day one.",
         "type": "bars",
         "unit": "",
-        "axisMax": 0,
-        "stat": { "value": "4.1%", "label": "of visitors convert to paying, 17% of those who sign up" },
+        "axisMax": 12000,
+        "stat": { "value": "4.1%", "label": "of visitors convert to paying, 17.4% of those who sign up" },
         "points": [
-          { "label": "Visitors", "short": "Visitors", "value": 10000 },
-          { "label": "Signed up", "short": "Signed up", "value": 2400 },
-          { "label": "Activated", "short": "Activated", "value": 1320 },
-          { "label": "Retained at day 30", "short": "Retained", "value": 780 },
-          { "label": "Paying", "short": "Paying", "value": 410 }
+          { "label": "Visitors", "short": "Visitors", "value": 11482 },
+          { "label": "Signed up", "short": "Signed up", "value": 2714 },
+          { "label": "Activated", "short": "Activated", "value": 1486 },
+          { "label": "Retained at day 30", "short": "Retained", "value": 861 },
+          { "label": "Paying", "short": "Paying", "value": 473 }
         ]
       },
       {
         "id": "scale",
         "tab": "Large-Scale Systems",
         "title": "p95 response time as load scales",
-        "caption": "Latency holds while throughput grows 250×, because the work is queued, cached and horizontally scaled.",
+        "caption": "Sustained-load runs at each step. Latency holds while throughput grows 250×, because the work is queued, cached and horizontally scaled.",
         "type": "columns",
         "unit": "ms",
-        "axisMax": 400,
-        "stat": { "value": "< 300 ms", "label": "p95 at 25,000 requests per second" },
+        "axisMax": 320,
+        "stat": { "value": "289 ms", "label": "p95 at 25,000 req/s, only 62% above the 100 req/s baseline" },
         "points": [
-          { "label": "100 req/s", "short": "100", "value": 180 },
-          { "label": "500 req/s", "short": "500", "value": 190 },
-          { "label": "1k req/s", "short": "1k", "value": 195 },
-          { "label": "5k req/s", "short": "5k", "value": 210 },
-          { "label": "10k req/s", "short": "10k", "value": 240 },
-          { "label": "25k req/s", "short": "25k", "value": 280 }
+          { "label": "100 req/s", "short": "100", "value": 178 },
+          { "label": "500 req/s", "short": "500", "value": 186 },
+          { "label": "1k req/s", "short": "1k", "value": 193 },
+          { "label": "5k req/s", "short": "5k", "value": 214 },
+          { "label": "10k req/s", "short": "10k", "value": 247 },
+          { "label": "25k req/s", "short": "25k", "value": 289 }
         ]
       }
     ]
   },
   "about": {
-    "heading": "From Computational Physics to Production AI",
+    "label": "About Me",
+    "heading": "From Computational Physics to Production AI Systems",
+    "skillsHeading": "Tech Stack",
     "paragraphs": [
       "I'm an AI engineer with a Computational Physics background, which means linear algebra, probability, optimisation and numerical methods are working tools rather than something I outsource to a framework. It's how I decide what a problem actually needs before reaching for a library.",
       "That shows in the work: fine-tuning LLaMA 3.2 with Unsloth instead of prompting around a weak base model, hybrid SQL and vector retrieval instead of a default RAG template, and multi-agent graphs where the control flow is designed rather than hoped for.",
@@ -131,18 +182,23 @@
     ],
     "highlights": [
       "Trains and fine-tunes models, not just API calls",
+      "4+ years shipping AI, from OCR tools to multi-agent systems",
       "Published researcher on arXiv (LSTM vs. QLSTM)",
       "End-to-end SaaS: auth, payments, workers, CI/CD",
       "25+ AI systems shipped to production, not prototypes",
-      "40 to 70% average cost reduction for clients"
+      "100+ clients across healthcare, real estate, e-commerce and finance",
+      "40 to 70% average cost reduction for clients",
+      "Meta and IBM certified in full-stack and AI engineering"
     ],
     "skillGroups": [
       { "label": "Mathematics & Theory", "skills": ["Linear Algebra", "Probability & Statistics", "Optimization", "Numerical Methods", "Time Series Analysis", "Quantum Machine Learning"] },
-      { "label": "AI / ML / GenAI", "skills": ["Python", "OpenAI", "LangChain", "LangGraph", "LLaMA", "Claude", "DeepSeek", "Hugging Face", "TensorFlow", "PyTorch", "RAG", "NLP", "Computer Vision", "Agentic AI", "Unsloth"] },
-      { "label": "Backend & APIs", "skills": ["Django", "FastAPI", "Flask", "Django REST", "Celery"] },
+      { "label": "AI / ML / GenAI", "skills": ["Python", "OpenAI", "Claude", "Gemini", "LLaMA", "DeepSeek", "Mistral", "Groq", "Hugging Face", "TensorFlow", "PyTorch", "scikit-learn", "RAG", "NLP", "Computer Vision", "Whisper", "Unsloth"] },
+      { "label": "Agents & Protocols", "skills": ["Agentic AI", "LangChain", "LangGraph", "MCP", "OpenAI Agents SDK", "CrewAI", "AutoGen", "LlamaIndex", "Multi-Agent Systems"] },
+      { "label": "Evaluation & Observability", "skills": ["LangSmith", "Langfuse", "RAGAS", "Weights & Biases", "Guardrails"] },
+      { "label": "Backend & APIs", "skills": ["Django", "FastAPI", "Flask", "Django REST", "Celery", "Pydantic"] },
       { "label": "Frontend", "skills": ["React", "Next.js", "Streamlit", "Tailwind CSS"] },
-      { "label": "Databases & Vector Stores", "skills": ["PostgreSQL", "MySQL", "MongoDB", "FAISS", "Pinecone", "Chroma", "BigQuery"] },
-      { "label": "Cloud & DevOps", "skills": ["Docker", "AWS", "Azure", "GitHub Actions", "Vercel"] },
+      { "label": "Databases & Vector Stores", "skills": ["PostgreSQL", "MySQL", "MongoDB", "FAISS", "Pinecone", "Chroma", "Qdrant", "Weaviate", "pgvector", "BigQuery"] },
+      { "label": "Cloud & DevOps", "skills": ["Docker", "Kubernetes", "AWS", "Azure", "GitHub Actions", "Vercel"] },
       { "label": "AI Dev Tools", "skills": ["Cursor", "Claude Code", "GitHub Copilot", "OpenAI Codex", "ChatGPT", "Windsurf"] }
     ]
   },
@@ -150,6 +206,28 @@
     "label": "How I Work",
     "heading": "Depth Where It Matters, Shipped End to End",
     "intro": "AI projects usually fail at one of two ends: the model was picked without understanding it, or it never made it out of the notebook. I cover both.",
+    "covers": {
+      "label": "What one engineer covers end to end",
+      "items": [
+        "Architecture",
+        "Data pipelines",
+        "Training & fine-tuning",
+        "Retrieval",
+        "Backend & APIs",
+        "Frontend",
+        "Deployment",
+        "Monitoring & evals"
+      ]
+    },
+    "aside": {
+      "heading": "How a project actually runs",
+      "steps": [
+        { "n": "01", "label": "Scope", "text": "The problem, the data and the number that will say it worked." },
+        { "n": "02", "label": "Build", "text": "A working slice running on your real data, not a slide deck." },
+        { "n": "03", "label": "Evaluate", "text": "A held-out set and a score, before anything goes near users." },
+        { "n": "04", "label": "Ship", "text": "Deployed with CI/CD and monitoring, source and docs handed over." }
+      ]
+    },
     "pillars": [
       {
         "id": 1,
@@ -207,6 +285,90 @@
       }
     ]
   },
+  "sections": {
+    "services": {
+      "label": "What I Build",
+      "heading": "AI Development Services",
+      "intro": "From LLM fine-tuning and retrieval pipelines to the billing page around them. I cover architecture, models, backend, frontend and cloud deployment myself, so there is one point of contact, no handoffs between specialists, and nothing lost in translation between them.",
+      "industries": {
+        "label": "Industries I have shipped into",
+        "items": ["Healthcare", "Real Estate", "Finance & FinTech", "Insurance", "E-commerce", "Education", "Security"]
+      },
+      "aside": {
+        "heading": "Every engagement includes",
+        "items": [
+          "Deployed and running in production, not a demo link",
+          "Source code, documentation and a proper handover",
+          "CI/CD, monitoring and error handling wired up",
+          "An evaluation set, so quality has a number attached"
+        ],
+        "cta": { "label": "Not sure which one you need? Describe the problem.", "href": "#contact" }
+      }
+    },
+    "projects": {
+      "label": "Selected Work",
+      "heading": "AI Projects & Case Studies",
+      "intro": "Twelve of more than 50 builds, picked because each one shows a different part of the job: multi-agent platforms, RAG pipelines, voice bots and document intelligence, across healthcare, real estate, finance, security, education, e-commerce and construction. Each lists the problem it was hired to solve, how it was built and the number it moved, all running in production rather than sitting in a notebook.",
+      "aside": {
+        "heading": "The record so far",
+        "stats": [
+          { "value": "12", "label": "Case studies below" },
+          { "value": "50+", "label": "Builds shipped" },
+          { "value": "25+", "label": "AI systems in production" },
+          { "value": "100+", "label": "Clients served" }
+        ]
+      }
+    },
+    "experience": {
+      "label": "Career Journey",
+      "heading": "AI Engineering Experience",
+      "intro": "Four years across three software firms and a university physics lab, moving from OCR and LSTM prototypes to fine-tuned LLaMA models, multi-agent architectures and retrieval pipelines carrying production traffic."
+    },
+    "publications": {
+      "label": "Research",
+      "heading": "Published Research",
+      "intro": "Work that had to survive review rather than a blog post with citations. My Computational Physics thesis on quantum machine learning for time series became an arXiv preprint benchmarking classical LSTM against Quantum LSTM for stock market movement prediction.",
+      "aside": {
+        "heading": "Paper details",
+        "items": [
+          { "label": "Venue", "value": "arXiv preprint" },
+          { "label": "Identifier", "value": "arXiv:2409.08297" },
+          { "label": "Published", "value": "12 September 2024" },
+          { "label": "DOI", "value": "10.48550/arXiv.2409.08297" }
+        ],
+        "citationLabel": "Citation",
+        "citation": "Mahmood, T., Ahmad, I., Ansar, M. M. Z., Darwish, J. A., & Sherwani, R. A. K. (2024). Comparative Study of Long Short-Term Memory (LSTM) and Quantum Long Short-Term Memory (QLSTM): Prediction of Stock Market Movement. arXiv:2409.08297."
+      }
+    },
+    "blog": {
+      "label": "Writing",
+      "heading": "Articles on AI & Machine Learning",
+      "intro": "Long-form explainers on agentic AI, retrieval-augmented generation, advanced prompting and quantum computing, written for engineers who want the mechanism rather than the hype. Published on Medium."
+    },
+    "certifications": {
+      "label": "Credentials",
+      "heading": "Certifications & Training",
+      "intro": "The formal credentials behind the practice: AI engineering and data science from IBM, machine learning from Stanford and DeepLearning.AI, full-stack engineering from Meta, and Azure AI fundamentals from Microsoft."
+    },
+    "resume": {
+      "label": "Resume",
+      "heading": "Download My CV",
+      "intro": "Every role, project, publication and skill in a single PDF, kept current.",
+      "cardHeading": "Ibtasam Ahmad, AI Engineer CV",
+      "cardBody": "The full record of my experience, education, technical skills and shipped projects. Download it, or skip straight to a conversation about what you need built.",
+      "cta": "Download Resume (PDF)",
+      "educationHeading": "Education"
+    },
+    "testimonials": {
+      "label": "Client Feedback",
+      "heading": "What Clients Say",
+      "intro": "Feedback from teams I have shipped for: healthcare NLP in France, voice telephony in the UAE, recommendation engines in Australia, academic search in Malaysia, and RAG pipelines in the US, UK and Singapore.",
+      "verify": {
+        "label": "More recommendations on LinkedIn",
+        "href": "https://pk.linkedin.com/in/ibtasam-ahmad"
+      }
+    }
+  },
   "services": [
     { "id": 1, "title": "Full-Stack AI Products", "description": "End-to-end development: UI, backend, AI integration, and cloud deployment. You get a complete, working product, not a prototype.", "icon": "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
     { "id": 2, "title": "LLM & Chatbot Development", "description": "Custom AI assistants, RAG chatbots, and voice-bots deployed in production, not demos. Your customers get answers 24/7.", "icon": "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" },
@@ -215,7 +377,8 @@
     { "id": 5, "title": "API Development & Integration", "description": "Robust REST APIs with FastAPI, Django REST, or Flask, connecting your AI models to any frontend, mobile app, or third-party platform.", "icon": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
     { "id": 6, "title": "Data Intelligence & Analytics", "description": "Vector search pipelines, BigQuery analytics, and LLM-powered dashboards that turn raw data into decisions your team can act on.", "icon": "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
     { "id": 7, "title": "Model Training & Fine-Tuning", "description": "Fine-tuned LLaMA and open-weight models on your own data with Unsloth and Hugging Face, plus custom ML and deep learning models for NLP, vision, and time series when an off-the-shelf API is the wrong answer.", "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
-    { "id": 8, "title": "Deployment, MLOps & Cost Control", "description": "Dockerised services, CI/CD with GitHub Actions, and deployment to AWS, Azure or Vercel, with monitoring and inference costs kept under control instead of discovered on the invoice.", "icon": "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" }
+    { "id": 8, "title": "Deployment, MLOps & Cost Control", "description": "Dockerised services, CI/CD with GitHub Actions, and deployment to AWS, Azure or Vercel, with monitoring and inference costs kept under control instead of discovered on the invoice.", "icon": "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" },
+    { "id": 9, "title": "Evaluation, Guardrails & Testing", "description": "Held-out evaluation sets, retrieval and answer scoring, and regression runs in CI, so a prompt or model change that quietly makes answers worse gets caught before your users do.", "icon": "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" }
   ],
   "projects": [
     { "id": 1, "title": "Agent Analysis System", "problem": "Enterprise team wasting hours on manual data analysis reports", "solution": "Multi-agent AI platform: autonomous agents handle ingestion, reasoning, and report generation end-to-end", "tags": ["AbacusAI", "LangGraph", "Python", "Multi-Agent", "LLMs"], "impact": "70% reduction in manual analysis time", "year": "2025" },
@@ -227,25 +390,27 @@
     { "id": 7, "title": "Medical Document Intelligence", "problem": "Hospital staff spending hours manually extracting and categorizing data from patient records and clinical reports", "solution": "AI system using LLMs and vector search to extract, classify, and summarize clinical documents with field-level accuracy", "tags": ["GPT-4o", "LangChain", "FastAPI", "PostgreSQL", "Healthcare AI"], "impact": "80% reduction in document processing time", "year": "2024" },
     { "id": 8, "title": "Insurance Claims Automation", "problem": "Insurance firm processing 500+ claims per week manually, causing slow approvals and high error rates", "solution": "Agentic AI workflow that reads claim documents, validates against policy rules, flags anomalies, and routes intelligently to adjusters", "tags": ["LangGraph", "OpenAI", "FastAPI", "MongoDB", "Agentic AI"], "impact": "65% faster claims processing", "year": "2025" },
     { "id": 9, "title": "Financial Intelligence Platform", "problem": "FinTech firm needing real-time insights from earnings reports, SEC filings, and market news across hundreds of assets", "solution": "AI analytics platform combining RAG over financial documents with live market data feeds for automated reporting and smart alerts", "tags": ["RAG", "GPT-4o", "BigQuery", "React", "Next.js"], "impact": "Real-time insights across 500+ assets", "year": "2025" },
-    { "id": 10, "title": "Academic AI Tutor", "problem": "EdTech startup needing personalized AI tutoring that adapts per student across subjects without expensive human tutors", "solution": "Adaptive tutoring platform with LLM-powered Q&A, PDF curriculum ingestion, quiz generation, and per-student progress tracking", "tags": ["RAG", "LLaMA 3", "Next.js", "FastAPI", "EdTech AI"], "impact": "3x engagement vs traditional e-learning", "year": "2024" }
+    { "id": 10, "title": "Academic AI Tutor", "problem": "EdTech startup needing personalized AI tutoring that adapts per student across subjects without expensive human tutors", "solution": "Adaptive tutoring platform with LLM-powered Q&A, PDF curriculum ingestion, quiz generation, and per-student progress tracking", "tags": ["RAG", "LLaMA 3", "Next.js", "FastAPI", "EdTech AI"], "impact": "3x engagement vs traditional e-learning", "year": "2024" },
+    { "id": 11, "title": "Colibri Purchase Advisor", "problem": "Online store losing sales to shoppers who could not find the right product and gave up before asking a human", "solution": "RAG product advisor over the live catalogue, using vector search for context-aware suggestions and persistent memory so a conversation picks up where it left off", "tags": ["Python", "FAISS", "AbacusAI", "Vector Search", "RAG"], "impact": "Faster customer query resolution", "year": "2024" },
+    { "id": 12, "title": "Construction Plan Analysis", "problem": "Estimators reading construction drawings by hand to pull materials, dimensions and quantities off every plan set", "solution": "RAG tool over uploaded PDF plans with two modes: fast vector search for quick lookups, and full-document deep analysis when a takeoff has to be exhaustive", "tags": ["RAG", "FAISS", "Claude", "Sentence Transformers", "Streamlit"], "impact": "Measurements and specs pulled straight from the plans", "year": "2026" }
   ],
   "experience": [
-    { "id": 1, "role": "Python / AI Developer", "company": "Visnext Software Solutions", "location": "Lahore, Pakistan", "period": "May 2025 - Present", "description": ["Built AI pipelines including data ingestion, LLM fine-tuning (LLaMA 3.2, Unsloth), and vector indexing (FAISS, Chroma)", "Designed and deployed RAG pipelines for report generation and contextual chatbots, reducing manual reporting by 60%", "Automated property insights using BigQuery and summarization agents, improving turnaround by 40%", "Developed multi-agent AI architectures for reasoning, planning, and executing complex workflows", "Delivered SaaS/Micro-SaaS apps including resume analyzers, OCR tools, and real-time translators", "Integrated AI models into full-stack apps (Django, Flask, FastAPI)"] },
-    { "id": 2, "role": "Python / AI Developer", "company": "DigiMark Developers", "location": "Lahore, Pakistan", "period": "Mar 2024 - May 2025", "description": ["Delivered custom chatbots and voicebots using RAG and generative AI models deployed in production", "Designed web applications and APIs (Django REST, Flask, FastAPI) integrating AI pipelines", "Developed ML/DL workflows for NLP, CV, and time series analysis", "Applied LLMs (OpenAI, Hugging Face) for automated content creation and knowledge extraction", "Built hybrid search solutions using SQL and vector databases (Pinecone, FAISS, Chroma)"] },
-    { "id": 3, "role": "Junior Python / AI Developer", "company": "Expert System Solution", "location": "Lahore, Pakistan", "period": "Aug 2023 - Mar 2024", "description": ["Developed AI solutions with Python/Django, NumPy, Pandas, scikit-learn, Keras, PyTorch", "Delivered OCR and LSTM-based prediction tools automating manual data tasks", "Contributed to database-backed AI apps using SQL/MySQL"] },
-    { "id": 4, "role": "AI Intern", "company": "ZS Study Advisors", "location": "Lahore, Pakistan", "period": "Jul 2023 - Aug 2023", "description": ["Implemented prototype AI solutions for NLP and CV tasks", "Supported early-stage adoption of automation in operations"] },
-    { "id": 5, "role": "Demonstrator", "company": "CHEP, University of the Punjab", "location": "Lahore, Pakistan", "period": "Sep 2022 - Jul 2023", "description": ["Guided students in FYPs, assignments, and AI/physics projects", "Assisted with grading, classroom projects, and hands-on demonstrations"] }
+    { "id": 1, "role": "Python / AI Developer", "company": "Visnext Software Solutions", "location": "Lahore, Pakistan", "period": "May 2025 - Present", "startDate": "2025-05", "description": ["Built AI pipelines including data ingestion, LLM fine-tuning (LLaMA 3.2, Unsloth), and vector indexing (FAISS, Chroma)", "Designed and deployed RAG pipelines for report generation and contextual chatbots, reducing manual reporting by 60%", "Automated property insights using BigQuery and summarization agents, improving turnaround by 40%", "Developed multi-agent AI architectures for reasoning, planning, and executing complex workflows", "Delivered SaaS/Micro-SaaS apps including resume analyzers, OCR tools, and real-time translators", "Integrated AI models into full-stack apps (Django, Flask, FastAPI)"] },
+    { "id": 2, "role": "Python / AI Developer", "company": "DigiMark Developers", "location": "Lahore, Pakistan", "period": "Mar 2024 - May 2025", "startDate": "2024-03", "endDate": "2025-05", "description": ["Delivered custom chatbots and voicebots using RAG and generative AI models deployed in production", "Designed web applications and APIs (Django REST, Flask, FastAPI) integrating AI pipelines", "Developed ML/DL workflows for NLP, CV, and time series analysis", "Applied LLMs (OpenAI, Hugging Face) for automated content creation and knowledge extraction", "Built hybrid search solutions using SQL and vector databases (Pinecone, FAISS, Chroma)"] },
+    { "id": 3, "role": "Junior Python / AI Developer", "company": "Expert System Solution", "location": "Lahore, Pakistan", "period": "Aug 2023 - Mar 2024", "startDate": "2023-08", "endDate": "2024-03", "description": ["Developed AI solutions with Python/Django, NumPy, Pandas, scikit-learn, Keras, PyTorch", "Delivered OCR and LSTM-based prediction tools automating manual data tasks", "Contributed to database-backed AI apps using SQL/MySQL"] },
+    { "id": 4, "role": "AI Intern", "company": "ZS Study Advisors", "location": "Lahore, Pakistan", "period": "Jul 2023 - Aug 2023", "startDate": "2023-07", "endDate": "2023-08", "description": ["Implemented prototype AI solutions for NLP and CV tasks", "Supported early-stage adoption of automation in operations"] },
+    { "id": 5, "role": "Demonstrator", "company": "CHEP, University of the Punjab", "location": "Lahore, Pakistan", "period": "Sep 2022 - Jul 2023", "startDate": "2022-09", "endDate": "2023-07", "description": ["Guided students in FYPs, assignments, and AI/physics projects", "Assisted with grading, classroom projects, and hands-on demonstrations"] }
   ],
   "publications": [
-    { "id": 1, "title": "Comparative Study of Long Short-Term Memory (LSTM) and Quantum Long Short-Term Memory (QLSTM): Prediction of Stock Market Movement", "authors": "Mahmood, Tariq., Ahmad, Ibtasam., Ansar, M. M. Z., Darwish, J. A., & Sherwani, R. A. K.", "year": "2024", "venue": "arXiv preprint arXiv:2409.08297", "link": "https://doi.org/10.48550/arXiv.2409.08297", "tags": ["Deep Learning", "LSTM", "QLSTM", "Stock Market Prediction", "Quantum Machine Learning"] }
+    { "id": 1, "title": "Comparative Study of Long Short-Term Memory (LSTM) and Quantum Long Short-Term Memory (QLSTM): Prediction of Stock Market Movement", "authors": "Mahmood, Tariq., Ahmad, Ibtasam., Ansar, M. M. Z., Darwish, J. A., & Sherwani, R. A. K.", "authorList": ["Tariq Mahmood", "Ibtasam Ahmad", "M. M. Z. Ansar", "J. A. Darwish", "R. A. K. Sherwani"], "year": "2024", "datePublished": "2024-09-12", "venue": "arXiv preprint arXiv:2409.08297", "link": "https://doi.org/10.48550/arXiv.2409.08297", "tags": ["Deep Learning", "LSTM", "QLSTM", "Stock Market Prediction", "Quantum Machine Learning"] }
   ],
   "blog": [
-    { "id": 1, "title": "Agentic AI: Key Terms You Should Know", "category": "AI", "date": "Mar 12, 2025", "excerpt": "A clear breakdown of the core terms used in discussing autonomous, decision-making AI systems.", "link": "https://medium.com/@shibtasam/agentic-ai-key-terms-you-should-know-42758ff4dab0" },
-    { "id": 2, "title": "Exploring the Landscape of Multiple LLMs", "category": "AI", "date": "Feb 14, 2025", "excerpt": "An overview of top language model providers and the strengths of each ecosystem.", "link": "https://medium.com/@shibtasam/exploring-the-landscape-of-multiple-large-language-models-24dd2ec27ad8" },
-    { "id": 3, "title": "Advanced Prompting Techniques for LLMs", "category": "AI", "date": "Dec 2, 2024", "excerpt": "Delving into techniques like Least-to-Most Prompting to boost LLM output quality.", "link": "https://medium.com/@shibtasam/beyond-the-basics-advanced-prompting-techniques-for-llms-619df4919223" },
-    { "id": 4, "title": "Advanced Retrieval-Augmented Generation", "category": "AI", "date": "Sep 19, 2024", "excerpt": "A deep dive into state-of-the-art RAG methods and how to implement them effectively.", "link": "https://medium.com/@shibtasam/exploring-advanced-retrieval-augmented-generation-techniques-a-comprehensive-guide-to-standard-b025d37c7932" },
-    { "id": 5, "title": "Master OOP in Minutes", "category": "Programming", "date": "May 11, 2024", "excerpt": "A compact guide to encapsulation, abstraction, inheritance, and polymorphism.", "link": "https://medium.com/@shibtasam/master-oop-in-minutes-a-crash-course-on-encapsulation-abstraction-inheritance-polymorphism-99b3929d17b8" },
-    { "id": 6, "title": "Quantum Gates, A Brief Introduction", "category": "Quantum Computing", "date": "Aug 28, 2023", "excerpt": "Understand how quantum gates manipulate qubit states in basic quantum circuits.", "link": "https://medium.com/@shibtasam/quantum-gates-a-brief-introduction-1a39085bea57" }
+    { "id": 1, "title": "Agentic AI: Key Terms You Should Know", "category": "AI", "date": "Mar 12, 2025", "datePublished": "2025-03-12", "excerpt": "A clear breakdown of the core terms used in discussing autonomous, decision-making AI systems.", "link": "https://medium.com/@shibtasam/agentic-ai-key-terms-you-should-know-42758ff4dab0" },
+    { "id": 2, "title": "Exploring the Landscape of Multiple LLMs", "category": "AI", "date": "Feb 14, 2025", "datePublished": "2025-02-14", "excerpt": "An overview of top language model providers and the strengths of each ecosystem.", "link": "https://medium.com/@shibtasam/exploring-the-landscape-of-multiple-large-language-models-24dd2ec27ad8" },
+    { "id": 3, "title": "Advanced Prompting Techniques for LLMs", "category": "AI", "date": "Dec 2, 2024", "datePublished": "2024-12-02", "excerpt": "Delving into techniques like Least-to-Most Prompting to boost LLM output quality.", "link": "https://medium.com/@shibtasam/beyond-the-basics-advanced-prompting-techniques-for-llms-619df4919223" },
+    { "id": 4, "title": "Advanced Retrieval-Augmented Generation", "category": "AI", "date": "Sep 19, 2024", "datePublished": "2024-09-19", "excerpt": "A deep dive into state-of-the-art RAG methods and how to implement them effectively.", "link": "https://medium.com/@shibtasam/exploring-advanced-retrieval-augmented-generation-techniques-a-comprehensive-guide-to-standard-b025d37c7932" },
+    { "id": 5, "title": "Master OOP in Minutes", "category": "Programming", "date": "May 11, 2024", "datePublished": "2024-05-11", "excerpt": "A compact guide to encapsulation, abstraction, inheritance, and polymorphism.", "link": "https://medium.com/@shibtasam/master-oop-in-minutes-a-crash-course-on-encapsulation-abstraction-inheritance-polymorphism-99b3929d17b8" },
+    { "id": 6, "title": "Quantum Gates, A Brief Introduction", "category": "Quantum Computing", "date": "Aug 28, 2023", "datePublished": "2023-08-28", "excerpt": "Understand how quantum gates manipulate qubit states in basic quantum circuits.", "link": "https://medium.com/@shibtasam/quantum-gates-a-brief-introduction-1a39085bea57" }
   ],
   "certifications": [
     { "id": 1, "title": "Meta Full-Stack Engineer Certificate", "issuer": "Meta", "year": "2024" },
@@ -274,8 +439,10 @@
     { "id": 8, "name": "James Wilson", "role": "Engineering Lead", "company": "Automation Agency, Australia", "initials": "JW", "content": "We brought Ibtasam in for a complex multi-agent AI project. He structured the entire architecture, built it cleanly, and the system has been running in production for over 4 months without a single issue. Will absolutely work together again." }
   ],
   "contact": {
+    "label": "Get In Touch",
     "heading": "Let's Build Something",
-    "paragraph": "Have a project in mind? Tell me what you need and I'll get back to you within 24 hours with a clear plan and honest pricing.",
+    "paragraph": "Have an AI project in mind? Tell me what you need built: the problem, the timeline, the constraints. I'll come back within 24 hours with a clear plan and honest pricing.",
+    "formHeading": "Send a Message",
     "availability": { "status": "Currently accepting projects", "responseTime": "Typical response time: within 24 hours" },
     "whatsapp": { "label": "Message on WhatsApp", "href": "https://wa.me/message/NNXCQB4E5X7HF1" },
     "channels": [

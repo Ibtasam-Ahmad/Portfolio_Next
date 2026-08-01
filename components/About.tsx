@@ -8,7 +8,7 @@ export default function About() {
   const { about } = content;
 
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" aria-labelledby="about-heading">
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,11 +16,17 @@ export default function About() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '72px', alignItems: 'start' }}>
+        {/* `start` sized the Tech Stack card to its own content, so its bottom
+            edge stopped well short of the bio beside it and left the right half
+            of the section visibly unfinished. `stretch` ties the card's height
+            to the row, so the two columns end on the same line whatever the bio
+            length is. The card is the only bordered box here, so it is the one
+            whose ragged bottom edge actually reads. */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '72px', alignItems: 'stretch' }}>
           {/* Left: bio */}
           <div>
-            <span className="section-label">About Me</span>
-            <h2 className="section-title">{about.heading}</h2>
+            <span className="section-label">{about.label}</span>
+            <h2 id="about-heading" className="section-title">{about.heading}</h2>
 
             {about.paragraphs.map((p, i) => (
               <p key={i} style={{ marginBottom: i === about.paragraphs.length - 1 ? '36px' : '20px', lineHeight: 1.85 }}>
@@ -41,7 +47,7 @@ export default function About() {
 
           {/* Right: skills */}
           <div className="card" style={{ padding: '36px' }}>
-            <h3 style={{ marginBottom: '24px', fontSize: '1.125rem', color: 'var(--text-primary)' }}>Tech Stack</h3>
+            <h3 style={{ marginBottom: '24px', fontSize: '1.125rem', color: 'var(--text-primary)' }}>{about.skillsHeading}</h3>
             {about.skillGroups.map((group) => (
               <div key={group.label}>
                 <p className="skill-group-label">{group.label}</p>

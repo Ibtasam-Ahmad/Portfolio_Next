@@ -13,7 +13,12 @@ export default function Approach() {
   const { approach } = content;
 
   return (
-    <section id="approach" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <section
+      id="approach"
+      className="section"
+      aria-labelledby="approach-heading"
+      style={{ background: 'var(--bg-secondary)' }}
+    >
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -21,10 +26,45 @@ export default function Approach() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">{approach.label}</span>
-          <h2 className="section-title">{approach.heading}</h2>
-          <p style={{ maxWidth: '560px', lineHeight: 1.8 }}>{approach.intro}</p>
+        {/* Split head, as in Services and Projects. The pillars below say what
+            I bring; the panel says what the engagement looks like week to week,
+            which is the next thing a client asks and was not answered anywhere
+            on the page. */}
+        <div className="section-head-split">
+          <div>
+            <span className="section-label">{approach.label}</span>
+            <h2 id="approach-heading" className="section-title">{approach.heading}</h2>
+            <p style={{ lineHeight: 1.8 }}>{approach.intro}</p>
+
+            {/* The process card opposite runs taller than the heading and a
+                two-line intro, which left the bottom of this column empty.
+                These are the disciplines the bio already claims one engineer
+                covers, so the space earns its keep and states the "end to end"
+                in the heading as something specific rather than a slogan. */}
+            <div className="head-industries">
+              <p className="skill-group-label">{approach.covers.label}</p>
+              <div className="head-industries-list">
+                {approach.covers.items.map((item) => (
+                  <span key={item} className="tech-chip">{item}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <aside className="card head-aside">
+            <h3 className="head-aside-title">{approach.aside.heading}</h3>
+            <ol className="head-steps">
+              {approach.aside.steps.map((step) => (
+                <li key={step.n}>
+                  <span className="head-step-n" aria-hidden="true">{step.n}</span>
+                  <div>
+                    <p className="head-step-label">{step.label}</p>
+                    <p className="head-step-text">{step.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </aside>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '24px' }}>

@@ -5,9 +5,10 @@ import content from '@/data/content.json';
 
 export default function Publications() {
   const { publications } = content;
+  const copy = content.sections.publications;
 
   return (
-    <section id="publications" className="section">
+    <section id="publications" className="section" aria-labelledby="publications-heading">
       <motion.div
         className="container"
         initial={{ opacity: 0, y: 24 }}
@@ -16,18 +17,30 @@ export default function Publications() {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <div style={{ marginBottom: '64px' }}>
-          <span className="section-label">Research</span>
-          <h2 className="section-title">Publications</h2>
-          <p style={{ marginTop: '16px', maxWidth: '500px' }}>
-            Research contributions in AI and machine learning.
-          </p>
+          <span className="section-label">{copy.label}</span>
+          <h2 id="publications-heading" className="section-title">{copy.heading}</h2>
+          <p style={{ marginTop: '16px', maxWidth: '640px', lineHeight: 1.8 }}>{copy.intro}</p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '800px' }}>
+      {/* The paper list used to carry maxWidth: 800px inside a 1200px
+          container, so a third of the row sat empty to its right. Dropping the
+          cap outright would run the title and author line to a 1136px measure,
+          which is well past readable, so the width stays and a details panel
+          takes the space instead. Everything in it is derived from the same
+          publication record, not new claims. */}
+      <div className="split-body">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           {publications.map((pub) => (
             <article
               key={pub.id}
               style={{
+                /* The grid child here is the flex wrapper, not this card, so
+                   stretching the row alone left the card sized to its own
+                   content and its bottom edge short of the panel opposite.
+                   Growing from natural height (rather than flex: 1, which
+                   would force equal heights) shares the spare space out and
+                   keeps a longer paper taller than a shorter one. */
+                flex: '1 1 auto',
                 background: 'var(--bg-tertiary)',
                 borderRadius: 'var(--radius)',
                 padding: '32px',
@@ -81,6 +94,21 @@ export default function Publications() {
             </article>
           ))}
         </div>
+
+        <aside className="card head-aside">
+          <h3 className="head-aside-title">{copy.aside.heading}</h3>
+          <dl className="pub-meta">
+            {copy.aside.items.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="skill-group-label">{copy.aside.citationLabel}</p>
+          <p className="pub-citation">{copy.aside.citation}</p>
+        </aside>
+      </div>
       </motion.div>
     </section>
   );
